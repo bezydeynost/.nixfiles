@@ -14,7 +14,7 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 20; # default = 32
+      size = 18; # default = 32
     };
 
     fonts = {
@@ -34,7 +34,7 @@
       sansSerif = { # default = DejaVu Sans
         package = pkgs.nerd-fonts.noto;
         name = "NotoSans Nerd Font";
-      };
+      }; 
 
       # С засечками
       serif = { # default = DejaVu Serif

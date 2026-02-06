@@ -35,13 +35,13 @@
     url = "git+https://codeberg.org/LGFae/awww";
     };
 
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,6 +54,11 @@
     url = "github:Gerg-L/spicetify-nix";
     inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }; 
   };
 
   outputs = inputs@{
@@ -63,6 +68,7 @@
     nur,
     nix-flatpak,
     stylix,
+    antigravity-nix,
     ...
   }:
   let
@@ -87,7 +93,7 @@
         ./nixos/configuration.nix
         nur.modules.nixos.default
         nix-flatpak.nixosModules.nix-flatpak
-        stylix.nixosModules.stylix
+        stylix.nixosModules.stylix	
         home-manager.nixosModules.home-manager
         {
           home-manager = {

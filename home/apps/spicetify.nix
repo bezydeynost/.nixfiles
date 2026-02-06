@@ -9,7 +9,7 @@ in {
     wayland = true;
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
-      beautifulLyrics
+      #beautifulLyrics
       hidePodcasts
       shuffle
     ];

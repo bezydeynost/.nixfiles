@@ -9,7 +9,7 @@
       #   # settings = {}; # Runtime settings for AMDVLK to be configured /etc/amd/amdVulkanSettings.cfg.
       # };
     };*/
-    
+
     amdgpu.overdrive.enable = true;
 
     i2c.enable = true;

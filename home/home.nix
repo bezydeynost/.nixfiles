@@ -10,6 +10,10 @@
 
   programs.home-manager.enable = true;
 
+  services.easyeffects.enable = true;
+
+  services.rescrobbled.enable = true;
+
   services.home-manager.autoExpire = {
     enable = true;
     frequency = "weekly";

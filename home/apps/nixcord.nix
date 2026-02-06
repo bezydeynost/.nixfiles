@@ -6,7 +6,7 @@
       equicord.enable = true;  # Or use Equicord instead (cannot enable both)
     };
     vesktop.enable = false;  # Vesktop
-    equibop.enable = false;  # Equibop
+    equibop.enable = true;  # Equibop
     config = {
       plugins = {
       betterFolders = {
@@ -59,7 +59,6 @@
         gameActivityToggle = {
           enable = true;
           oldIcon = false;
-          location = "PANEL";
         };
 
         imageFilename = {
@@ -132,12 +131,7 @@
           ignoreFonts = false;
           animateGradients = false;
           includedNames = "{friend, nick} [{display}] (@{user})";
-          friendNameColor = "Role-25";
-          nicknameColor = "Role-25";
-          displayNameColor = "Role-25";
-          usernameColor = "Role-25";
           nameSeparator = " ";
-          customNameColor = "Role-25";
         };
 
         silentTyping = {

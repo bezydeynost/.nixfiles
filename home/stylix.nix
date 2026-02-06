@@ -8,6 +8,7 @@
       vscode.enable = false; # Руками ставлю. Не нравится stylix вариант
       firefox.enable = false; # Руками ставлю и бекаплю каталог браузера
       zen-browser.profileNames = [ "default" ];
+      qt.platform = "qtct";
     };
      icons = {
        enable = true;

@@ -28,7 +28,8 @@
       v4l2loopback
     ];
 
-    kernelPackages = pkgs.linuxPackages_zen;
+    #kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     kernelParams = [
       "quiet"

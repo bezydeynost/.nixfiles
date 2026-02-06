@@ -3,11 +3,11 @@
 
     // === Startup ===
 spawn-sh-at-startup 		"vicinae server"
-spawn-at-startup        	"dms" "run"
+spawn-at-startup        	"noctalia-shell"
 spawn-at-startup		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup		"/usr/lib/xdg-desktop-portal-gnome"
-spawn-at-startup		"flameshot"
 spawn-at-startup		"nm-applet" "--indicator"
+spawn-at-startup		"flameshot"
 spawn-at-startup		"xwayland-satellite"
 spawn-at-startup		"bash" "-c" "wl-paste --watch cliphist store &"
 spawn-at-startup		"easyeffects"
@@ -23,27 +23,27 @@ binds {
     Mod+MouseBack		repeat=false { toggle-overview; }
     Mod+Shift+Slash		{ show-hotkey-overlay; }
     Mod+E			hotkey-overlay-title="File Manager: Thunar" { spawn "thunar"; }
-    Mod+Shift+E			hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; } 
-    Mod+W			hotkey-overlay-title="File Manager: Yazi" { spawn "ghostty" "-e" "yazi"; }
-    Mod+Shift+Home		hotkey-overlay-title="Hide/Show Bar" { spawn "dms" "ipc" "call" "bar" "toggle" "name" "Main Bar"; }
-    Mod+Shift+Insert		hotkey-overlay-title="LockScreen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Shift+E			hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
+    Mod+W			hotkey-overlay-title="File Manager: Yazi" { spawn "kitty" "-e" "yazi"; }
+    Mod+Shift+Home		hotkey-overlay-title="Hide/Show Bar" { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
+    Mod+Shift+Insert		hotkey-overlay-title="LockScreen" { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 
 
     // === Application Launchers ===
     Mod+Return			hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
     Mod+T			hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
     Mod+Shift+Return		hotkey-overlay-title="Open Kitty" { spawn "kitty"; }
-    //Mod+D			hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    //Mod+D			hotkey-overlay-title="Application Launcher" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+D			repeat=false { spawn "vicinae" "toggle"; }
     Mod+V			hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
-    Mod+Comma			hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
-    Mod+N			hotkey-overlay-title="Notifications History" { spawn "dms" "ipc" "call" "notifications" "toggleHistory"; }
-    //Mod+M			hotkey-overlay-title="Task Manager" { spawn "missioncenter"; }
-    Mod+M			hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; } 	
- 
+    Mod+Comma			hotkey-overlay-title="Settings" { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+N			hotkey-overlay-title="Notifications History" { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
+    Mod+M			hotkey-overlay-title="Task Manager" { spawn "missioncenter"; }
+
     // === Other Apps ===
-    Mod+Shift+C			{ spawn "dms" "ipc" "call" "color-picker" "toggle"; }
-    Mod+Ctrl+P			{ spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
+    Mod+Shift+C			{ spawn "hyprpicker" "-a" "$(wl-paste)"; }
+    //Mod+Ctrl+P		{ spawn "waypaper"; }
+    Mod+Ctrl+P			{ spawn "noctalia-shell" "ipc" "call" "wallpaper" "toggle"; }
     Mod+Shift+P			{ spawn-sh "/home/falguren/.config/niri/script/off.sh"; }
 
     // === Security ===
@@ -51,16 +51,16 @@ binds {
     Mod+Shift+Delete		{ spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
 
     // === Audio Controls ===
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
-    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
-    XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "media" "playPause"; }
-    XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "media" "next"; }
-    XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "media" "previous"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    XF86AudioPlay allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
+    XF86AudioNext allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
+    XF86AudioPrev allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
 
     // === Brightness Controls ===
-    XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
     
     // === Window Management ===
     Mod+Shift+Q			repeat=false { close-window; }
@@ -360,7 +360,7 @@ window-rule {
 	open-on-workspace "chat"
 }
 
-// Lounge
+// Etc
 
 window-rule {
 	match app-id="com.github.th_ch.youtube_music"
@@ -369,7 +369,12 @@ window-rule {
 	open-on-workspace "lounge"
 }
 
-// Etc
+window-rule { 
+	match app-id="galculator"
+	match app-id="blueman-manager"
+	match app-id="xdg-desktop-portal"
+	match app-id="clipse-gui"
+}
 
 window-rule {
 	match app-id="thunar"
@@ -403,7 +408,7 @@ window-rule {
 }
 
 window-rule {
-	geometry-corner-radius 12
+	geometry-corner-radius 20
 	clip-to-geometry true
 }
 
@@ -421,11 +426,6 @@ window-rule {
 	open-floating true
 }
 
-window-rule {
-    match app-id=r#"org.quickshell$"#
-    open-floating true
-}
-
 layer-rule {
 	match namespace="waybar"
 	match at-startup=true
@@ -433,9 +433,10 @@ layer-rule {
 }
 
 layer-rule {
+	match namespace="swww-daemon"
 	match namespace="mpvpaper"
 	match namespace="awww-daemon"
-	match namespace="^quickshell$"
+	match namespace="^noctalia-wallpaper*"
 	place-within-backdrop true
 }
 

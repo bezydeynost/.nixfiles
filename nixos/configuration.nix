@@ -27,9 +27,9 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 7d";
     };
-  };
+  }; 
  
   programs.dconf.enable = true;
 
@@ -37,6 +37,8 @@
 
   environment.systemPackages = with pkgs; [
 	#vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+	gnome-tweaks
+
 	(writeShellScriptBin "npath" ''
 	if [ -z "$1" ]; then
 	  	echo "Usage: npath <program>"
@@ -46,13 +48,23 @@
 	'')
   ];
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
+  services.displayManager.gdm.enable = true;
   programs.niri.enable = true;
+  services.desktopManager.gnome.enable = true;
+
   xdg.portal = {
     enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gnome
+      #xdg-desktop-portal-kde
+    ];
+
     config = {
-      common = {
+      niri = {
         default = [
           "gnome"
           "gtk"
@@ -68,13 +80,8 @@
         ];
       };
     };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gnome
-      ];
   };
-  
+
   xdg.terminal-exec = {
     enable = true;
     settings = {

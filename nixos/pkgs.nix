@@ -16,6 +16,26 @@
     };
   };
 
+  imports = [
+  inputs.dms.nixosModules.dank-material-shell
+  ];
+
+  programs.dank-material-shell = {
+     enable = true;
+
+     systemd = {
+     enable = false;             
+     restartIfChanged = true;
+     };
+
+     enableSystemMonitoring = true;     
+     enableVPN = true;                  
+     enableDynamicTheming = true;       
+     enableAudioWavelength = true;      
+     enableCalendarEvents = true;       
+     enableClipboardPaste = true;       
+     };
+
   services = {
     gvfs.enable = true; # Mount, trash, and other functionalities for Thunar file manager
     tumbler.enable = true; # Thumbnail support for Thunar file manager
@@ -27,19 +47,16 @@
     upower.enable = true;
     logmein-hamachi.enable = true;
     resolved.enable = true;
-
-    # fstrim.enable = true; # Чистит ssd для норм производительности. Пока не пользуюсь
     # archisteamfarm = {}; # Фарм карточек стима афк. Просто раскомментить мало, надо настроить
   };
 
-  systemd.services.lactd.enable = true;
-  services.displayManager.gdm.enable = true;
+  systemd.services.lactd.enable = true; 
 
   programs = {
     nix-ld = { # Имитация файловой системы обычного линукса и пакеты для этого дела
       enable = true;
       libraries = with pkgs; [
-        # Для запуска Throne бинаря с гитхаб (форк nekoray) и V2rayN
+        # Для запуска Throne бинаря с гитхаб и V2rayN
         kdePackages.qtbase
         kdePackages.qttools
         kdePackages.qtwayland
@@ -52,7 +69,6 @@
         libGL
         libglvnd
         libxkbcommon
-        freetype
         fontconfig
         xorg.libX11
         xorg.libXext
@@ -137,6 +153,7 @@
     # Flatpak
     services.flatpak.packages = [
     "ru.linux_gaming.PortProton"
+    "org.kde.kdenlive"
     ]; 
 
     programs.obs-studio = {
@@ -152,11 +169,15 @@
 
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # Shell for niri
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww # Wallpapers for vicinae
+    inputs.antigravity-nix.packages.${pkgs.system}.default
     quickshell
     swww # Wallpapers
     vicinae # Прикольная штука замена fuzzel
     waybar # Bar  
-    #swaynotificationcenter
+    # swaynotificationcenteur
+    onboard
+    libxcb
+
     
     #########
     ## GUI ##
@@ -166,10 +187,10 @@
     # ksnip # Скрин экрана. Аналог - Flameshot
     # kdePackages.ark # Архиватор от kde. Имеет в зависимостях blowjob
     file-roller # Архиватор от gnome
-    #qbittorrent # Торренты качать
+    # qbittorrent # Торренты качать
     qbittorrent-enhanced
     bitwarden-desktop # Password manager
-    #v2rayn # Vless
+    # v2rayn # Vless
     throne # Vless
     mission-center # Монитор ресурсов
     gnome-disk-utility # Диски трогат
@@ -179,16 +200,14 @@
     networkmanagerapplet # Tray for network manager
     brightnessctl # Brightness control for laptop
     blueman # Bluetooth
-    easyeffects # PipeWire settings. Мне для эквалайзера нужен
+    helvum # Прокидка звука в другие источники pipewire
     # gucharmap # Проверка шрифтов. Какой шрифт какие символы отображает
     faugus-launcher # Запускать игры
     gparted # Форматирование дисков
     haguichi # Frontend hamachi
-    kdePackages.kdenlive # Video editor
     kdePackages.kate # Text editor
     kdePackages.okular
     localsend # Кидать файлы
-    lmstudio # Local AP
     lsfg-vk # Framegen losless scaling
     lsfg-vk-ui # Framegen losless scaling
     pear-desktop # YT-music
@@ -199,8 +218,10 @@
     qdiskinfo # Disk info
     waypaper # Wallpaper
     zoom-us # Video conferencing
-    qalculate-gtk # Calculator
-    gpu-screen-recorder-gtk #
+    gnome-calculator # Calculator
+    gpu-screen-recorder-gtk # Fast record video 
+    bazaar # Check Flatpaks
+    collector #
 
     ##############
     ## Terminal ##
@@ -212,7 +233,9 @@
     git
     yt-dlp # Скачивать и смотреть медиа с разных сайтов
     wl-clipboard
-    # cliphist 
+    #cliphist 
+    #gearlever # Тоже appimage запускать
+    #appimage-run 
     nix-melt
     microfetch 
     trash-cli 
@@ -233,12 +256,15 @@
     xdg-utils # Set of command line tools that assist applications with a variety of desktop integration tasks
     playerctl # Управление медиа. Плей/пауза и тд
     amdgpu_top # Tool to display AMD GPU usage
-    btop # Монитор ресурсов в терминале
+    btop-rocm # Монитор ресурсов в терминале
     htop
+    icoextract
     rocmPackages.rocm-smi # Чтоб в btop было gpu
     rocmPackages.rocblas # Для работы hip?
     rocmPackages.hipblas # Для работы hip?
     rocmPackages.clr # Для работы hip?
+    rocmPackages.rocm-core
+    rocmPackages.rocminfo
     timer # A "sleep" with progress. Таймер на пельмени "timer 5m"
     libqalculate # Advanced calculator library
     # fastfetch # Пишешь в теримнал и кидаешь всем со словами I use nixos btw
@@ -281,7 +307,6 @@
     ##   NUR    ##
     ##############
 
-    #nur.repos.MiyakoMeow.free-download-manager # Download manager
     nur.repos.zerozawa.mikusays # Мику
 
     ##############
@@ -289,6 +314,7 @@
     ##############
 
     firefox
+    ladybird
 
     ##########
     ## Docs ##
@@ -361,7 +387,7 @@
     ############
 
     ayugram-desktop
-    #equibop
+    materialgram
 
     ###########
     ## Games ##
@@ -381,15 +407,16 @@
     heroic # Games launcher
     protonplus # Download proton to Steam Lutris etc
     prismlauncher # Minecraft
+    # osu-lazer-bin # Osu
 
     ############
     ## Design ##
     ############
 
     krita # Рисовать 1. 
-    gimp # Рисовать 2. Потом выберу что оставить
+    # gimp # Рисовать 2. Потом выберу что оставить
     # blender-hip # 3д графика и рендер видео
-    hyprpicker # color picker 
+    # hyprpicker # color picker 
     # inkscape # Vector graphic editor
 
     ##################
@@ -449,7 +476,7 @@
     # google-fonts
     libva-utils # Проверяет работоспособность VAAPI?
     clinfo # Проверяет работоспособность OpenCL?
-    pamixer # PulseAudio cli (громкость редачу)
+    pamixer # PulseAudio cli (громкость редачу) 
 
     ######################
     ## Govno ##
@@ -459,19 +486,15 @@
     # а только на nix shell внутри проекта, где нужны эти пакеты
     # Python
     python3Packages.pip # Python package manager (nvim его не видит)
-    python3Packages.debugpy # Debug Adapter Protocol for Python
-    pyright # Python LSP
-    ruff # Extremely fast Python linter
-
-    # Rust
-    #rustup # Управление версиями языка Rust (rustup default stable)
-
+    python3
     # Golang
-    #go # Go programming language
+    # go # Go programming language
+
+    cargo
+    cmake
 
     # Protobuf
     protols # LSP
-    # buf # LSP (крашит некоторые проекты в нвиме)
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
@@ -485,6 +508,11 @@
     v2ray # VPN
     xray # VPN
     sing-box # VPN
+
+
+    lmstudio # Local AP
+    sillytavern #
+    koboldcpp #
 
     ############
     ## Архивы ##

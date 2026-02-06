@@ -6,7 +6,7 @@
   #enableZshIntegration = true;
 
   settings = {	
-  	working-directory = "home";
+	window-inherit-working-directory = false;
   	font-size = lib.mkForce 13;
 	font-family = lib.mkForce "Liberation Mono";
 	font-family-bold = lib.mkForce "Liberation Mono Bold";

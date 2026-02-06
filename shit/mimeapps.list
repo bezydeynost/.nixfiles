@@ -64,7 +64,7 @@ image/svg+xml=org.gnome.gThumb.desktop;imv-dir.desktop;
 image/vnd.microsoft.icon=org.gnome.gThumb.desktop;imv-dir.desktop;
 image/webp=org.gnome.gThumb.desktop;imv-dir.desktop;
 image/x-icon=org.gnome.gThumb.desktop;imv-dir.desktop;
-inode/directory=org.gnome.Nautilus.desktop;
+inode/directory=thunar.desktop;
 text/*=nvim.desktop;
 text/css=nvim.desktop;
 text/csv=nvim.desktop;
@@ -89,8 +89,8 @@ x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
 x-scheme-handler/magnet=qbittorrent.desktop;
 x-scheme-handler/mailto=thunderbird.desktop;
 x-scheme-handler/unknown=zen-beta.desktop;
-x-scheme-handler/tg=userapp-AyuGram Desktop-JR3UH3.desktop;
-x-scheme-handler/tonsite=userapp-AyuGram Desktop-DM1UH3.desktop;
+x-scheme-handler/tg=io.github.kukuruzka165.materialgram.desktop;
+x-scheme-handler/tonsite="io.github.kukuruzka165.materialgram.desktop;
 x-scheme-handler/discord=vesktop.desktop;
 
 [Removed Associations]

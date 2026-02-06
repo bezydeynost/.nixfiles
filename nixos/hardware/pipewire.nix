@@ -1,9 +1,13 @@
 {
-  security.rtkit.enable = true;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     jack.enable = true;
     pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
 
     # Ниже настройки имеют формат "число - название"
     # Число определяет приоритет настройки, а название описывает цель конфига
@@ -29,18 +33,15 @@
     extraConfig.pipewire."92-low-latency" = {
       "context.properties" = {
         "default.clock.rate" = 48000;
-        "default.clock.quantum" = 128; # default = 1024
-        "default.clock.min-quantum" = 128; # default = 32
-        "default.clock.max-quantum" = 128;  # default = 2048
+        "default.clock.quantum" = 512; 
+        "default.clock.min-quantum" = 32; 
+        "default.clock.max-quantum" = 2048;  
       };
     };
-    alsa = {
-      enable = true;
-      support32Bit = true;
-    };
 
-    wireplumber = {
-	enable = true;
+
+    #wireplumber = {
+	#enable = true;
 	# Запретить конкретному софту редактировать громкость микрофона
       	# В терминал `wpctl status`, найти нужное приложение в списке клиентов
       	# Потом `wpctl inspect номер-клиента | grep application.process.binary`
@@ -81,6 +82,6 @@
         #  default_permissions = "rwx",
         # })
         #'';
-    };
+    #};
   };
 }
