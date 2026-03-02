@@ -5,14 +5,14 @@
 
           // === Startup ===
       spawn-sh-at-startup 		"vicinae server"
-      spawn-at-startup        	"dms" "run"
-      spawn-at-startup		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-      spawn-at-startup		"/usr/lib/xdg-desktop-portal-gnome"
-      spawn-at-startup		"flameshot"
-      spawn-at-startup		"nm-applet" "--indicator"
-      spawn-at-startup		"xwayland-satellite"
-      spawn-at-startup		"bash" "-c" "wl-paste --watch cliphist store &"
-      spawn-at-startup		"easyeffects"
+      spawn-at-startup        	        "dms" "run"
+      spawn-at-startup		        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+      spawn-at-startup		        "/usr/lib/xdg-desktop-portal-gnome"
+      spawn-at-startup		        "flameshot"
+      spawn-at-startup	        	"nm-applet" "--indicator"
+      spawn-at-startup	        	"xwayland-satellite"
+      spawn-at-startup	        	"bash" "-c" "wl-paste --watch cliphist store &"
+      spawn-at-startup	        	"easyeffects"
 
       config-notification {
           disable-failed
@@ -20,27 +20,27 @@
 
       binds {
           // === System & Overview ===
-          Mod+X			repeat=false { toggle-overview; }
-          Mod+MouseBack		repeat=false { toggle-overview; }
+          Mod+X		        	repeat=false { toggle-overview; }
+          Mod+MouseBack	        	repeat=false { toggle-overview; }
           Mod+Shift+Slash		{ show-hotkey-overlay; }
-          Mod+E			hotkey-overlay-title="File Manager: Thunar" { spawn "thunar"; }
+          Mod+E		        	hotkey-overlay-title="File Manager: Thunar" { spawn "thunar"; }
           Mod+Shift+E			hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
-          Mod+W			hotkey-overlay-title="File Manager: Yazi" { spawn "ghostty" "-e" "yazi"; }
+          Mod+W		        	hotkey-overlay-title="File Manager: Yazi" { spawn "ghostty" "-e" "yazi"; }
           Mod+Shift+Home		hotkey-overlay-title="Hide/Show Bar" { spawn "dms" "ipc" "call" "bar" "toggle" "name" "Main Bar"; }
           Mod+Shift+Insert		hotkey-overlay-title="LockScreen" { spawn "dms" "ipc" "call" "lock" "lock"; }
 
 
           // === Application Launchers ===
           Mod+Return			hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
-          Mod+T			hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
+          Mod+T			        hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
           Mod+Shift+Return		hotkey-overlay-title="Open Kitty" { spawn "kitty"; }
           //Mod+D			hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-          Mod+D			repeat=false { spawn "vicinae" "toggle"; }
-          Mod+V			hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
-          Mod+Comma			hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
-          Mod+N			hotkey-overlay-title="Notifications History" { spawn "dms" "ipc" "call" "notifications" "open"; }
+          Mod+D		        	repeat=false { spawn "vicinae" "toggle"; }
+          Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+          Mod+Comma	       		hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
+          Mod+N		        	hotkey-overlay-title="Notifications History" { spawn "dms" "ipc" "call" "notifications" "open"; }
           //Mod+M			hotkey-overlay-title="Task Manager" { spawn "missioncenter"; }
-          Mod+M			hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+          Mod+M			        hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
 
           // === Other Apps ===
           Mod+Shift+C			{ spawn "dms" "ipc" "call" "color-picker" "toggle"; }
@@ -74,29 +74,29 @@
           Mod+Down			{ focus-window-down; }
           Mod+Up			{ focus-window-up; }
           Mod+Right			{ focus-column-right; }
-          Mod+H			{ focus-column-left; }
-          Mod+J			{ focus-window-down; }
-          Mod+K			{ focus-window-up; }
-          Mod+L			{ focus-column-right; }
+          Mod+H		        	{ focus-column-left; }
+          Mod+J		        	{ focus-window-down; }
+          Mod+K		        	{ focus-window-up; }
+          Mod+L		        	{ focus-column-right; }
 
           // === Window Movement ===
           Mod+Shift+Left		{ move-column-left; }
           Mod+Shift+Down 	        { move-window-down; }
-          Mod+Shift+Up 	        { move-window-up; }
+          Mod+Shift+Up 	                { move-window-up; }
           Mod+Shift+Right		{ move-column-right; }
-          Mod+Shift+H 	        { move-column-left; }
-          Mod+Shift+J 	        { move-window-down; }
-          Mod+Shift+K 	        { move-window-up; }
-          Mod+Shift+L 	        { move-column-right; }
+          Mod+Shift+H 	                { move-column-left; }
+          Mod+Shift+J 	                { move-window-down; }
+          Mod+Shift+K 	                { move-window-up; }
+          Mod+Shift+L 	                { move-column-right; }
 
           // === Column Navigation ===
           Mod+Home 		        { focus-column-first; }
           Mod+End 		        { focus-column-last; }
           Mod+Ctrl+Home 	        { move-column-to-first; }
-          Mod+Ctrl+End 	        { move-column-to-last; }
+          Mod+Ctrl+End 	                { move-column-to-last; }
 
           // === Monitor Navigation ===
-          Mod+Ctrl+Left		{ focus-monitor-left; }
+          Mod+Ctrl+Left		        { focus-monitor-left; }
           Mod+Ctrl+Right		{ focus-monitor-right; }
           //Mod+Shift+Up		{ focus-monitor-down; }
           //Mod+Shift+Right		{ focus-monitor-up; }
@@ -109,7 +109,7 @@
           Mod+Shift+Ctrl+Left		{ move-column-to-monitor-left; }
           Mod+Shift+Ctrl+Down		{ move-column-to-monitor-down; }
           Mod+Shift+Ctrl+Up		{ move-column-to-monitor-up; }
-          Mod+Shift+Ctrl+Right	{ move-column-to-monitor-right; }
+          Mod+Shift+Ctrl+Right	        { move-column-to-monitor-right; }
           Mod+Shift+Ctrl+H		{ move-column-to-monitor-left; }
           Mod+Shift+Ctrl+J		{ move-column-to-monitor-down; }
           Mod+Shift+Ctrl+K		{ move-column-to-monitor-up; }
@@ -117,11 +117,11 @@
 
           // === Workspace Navigation ===
           Mod+Tab			repeat=false { focus-workspace-previous; }
-          Mod+Page_Down		{ focus-workspace-down; }
+          Mod+Page_Down		        { focus-workspace-down; }
           Mod+Page_Up			{ focus-workspace-up; }
-          Mod+U			{ focus-workspace-down; }
-          Mod+I			{ focus-workspace-up; }
-          Mod+Ctrl+Down		{ move-column-to-workspace-down; }
+          Mod+U			        { focus-workspace-down; }
+          Mod+I			        { focus-workspace-up; }
+          Mod+Ctrl+Down		        { move-column-to-workspace-down; }
           Mod+Ctrl+Up			{ move-column-to-workspace-up; }
           Mod+Ctrl+U			{ move-column-to-workspace-down; }
           Mod+Ctrl+I			{ move-column-to-workspace-up; }
@@ -133,21 +133,21 @@
           Mod+Shift+I			{ move-workspace-up; }
 
           // === Mouse Wheel Navigation ===
-          Mod+WheelScrollDown 	{ focus-column-right; }
+          Mod+WheelScrollDown 	        { focus-column-right; }
           Mod+WheelScrollUp 		{ focus-column-left; }
           Mod+Shift+WheelScrollDown	{ move-column-right; }
           Mod+Shift+WheelScrollUp	{ move-column-left; }
 
           // === Numbered Workspaces ===
-          Mod+1			{ focus-workspace 1; }
-          Mod+2			{ focus-workspace 2; }
-          Mod+3			{ focus-workspace 3; }
-          Mod+4			{ focus-workspace 4; }
-          Mod+5			{ focus-workspace 5; }
-          Mod+6			{ focus-workspace 6; }
-          Mod+7			{ focus-workspace 7; }
-          Mod+8			{ focus-workspace 8; }
-          Mod+9			{ focus-workspace 9; }
+          Mod+1			        { focus-workspace 1; }
+          Mod+2		        	{ focus-workspace 2; }
+          Mod+3		        	{ focus-workspace 3; }
+          Mod+4		        	{ focus-workspace 4; }
+          Mod+5		        	{ focus-workspace 5; }
+          Mod+6		        	{ focus-workspace 6; }
+          Mod+7		        	{ focus-workspace 7; }
+          Mod+8		        	{ focus-workspace 8; }
+          Mod+9		        	{ focus-workspace 9; }
 
           // === Move to Numbered Workspaces ===
           Mod+Shift+1			{ move-column-to-workspace 1; }
@@ -161,13 +161,13 @@
           Mod+Shift+9			{ move-column-to-workspace 9; }
 
           // === Sizing & Layout ===
-          Mod+R			{ switch-preset-column-width; }
+          Mod+R		        	{ switch-preset-column-width; }
           Mod+Shift+R		        { switch-preset-window-height; }
           Mod+Ctrl+R			{ reset-window-height; }
           Mod+Ctrl+F			{ expand-column-to-available-width; }
-          Mod+C			{ center-column; }
+          Mod+C		        	{ center-column; }
           Mod+Ctrl+C 		        { center-visible-columns; }
-          Mod+F			{ maximize-column; }
+          Mod+F		        	{ maximize-column; }
 
           // === Manual Sizing ===
           Mod+Minus			{ set-column-width "-10%"; }
@@ -325,7 +325,7 @@
       // Workspace "browser" rules
 
       window-rule {
-      	match app-id="zen$" title="^Картинка в картинке$"
+      	match app-id="zen-beta$" title="^Картинка в картинке$"
       	match title="^Picture-in-Picture$"
       	open-floating true
       	default-floating-position x=32 y=32 relative-to="top-right"
@@ -340,7 +340,7 @@
 
       window-rule {
       	match app-id="firefox"
-      	match app-id="zen"
+      	match app-id="zen-beta"
       	open-maximized true
       	open-on-workspace "browser"
       }
@@ -366,7 +366,7 @@
       window-rule {
       	match app-id="com.github.th_ch.youtube_music"
       	match app-id="spotify"
-          	open-maximized true
+        open-maximized true
       	open-on-workspace "lounge"
       }
 

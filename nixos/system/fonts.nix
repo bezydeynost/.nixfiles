@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   fonts.packages = with pkgs; [
     noto-fonts # Шрифт от гугла, цель которого поддержка всех языков мира
     noto-fonts-cjk-serif # Отображение иероглифов. Версия с засечками

@@ -1,10 +1,4 @@
 {
-  config,
-  pkgs,
-  curversion,
-  inputs,
-  ...
-}: {
   imports = [
     /etc/nixos/hardware-configuration.nix
     ./de-wm
@@ -36,62 +30,7 @@
     };
   };
 
-  programs.dconf.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    gnome-tweaks
-
-    (writeShellScriptBin "npath" ''
-      if [ -z "$1" ]; then
-        	echo "Usage: npath <program>"
-      	exit 1
-      fi
-      readlink -f $(which $1)
-    '')
-  ];
-
   system.stateVersion = "25.11";
-
-  #services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gnome
-      #xdg-desktop-portal-kde
-    ];
-
-    config = {
-      niri = {
-        default = [
-          "gnome"
-          "gtk"
-        ];
-        "org.freedesktop.impl.portal.Access" = [
-          "gtk"
-        ];
-        "org.freedesktop.impl.portal.Notification" = [
-          "gtk"
-        ];
-        "org.freedesktop.impl.portal.Secret" = [
-          "gnome-keyring"
-        ];
-      };
-    };
-  };
-
-  xdg.terminal-exec = {
-    enable = true;
-    settings = {
-      default = [
-        "com.mitchellh.ghostty.desktop"
-      ];
-    };
-  };
 }

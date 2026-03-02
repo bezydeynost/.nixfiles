@@ -55,10 +55,6 @@
       enable = true;
       dark = "MoreWaita";
       package = pkgs.morewaita-icon-theme;
-      #dark = "rose-pine";
-      #package = pkgs.rose-pine-icon-theme;
-      #dark = "Colloid";
-      #package = pkgs.colloid-icon-theme;
     };
     #targets = {
     #};

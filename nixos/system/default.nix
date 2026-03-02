@@ -4,7 +4,8 @@
     ./fonts.nix
     ./locale.nix
     ./sudo-rs.nix
-    ./xserver.nix
+    ./sched-ext.nix
     ./zram.nix
+    ./xdg.nix
   ];
 }

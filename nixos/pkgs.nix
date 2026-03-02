@@ -1,14 +1,4 @@
-{
-  pkgs,
-  inputs,
-  pkgs-master,
-  ...
-}: let
-  pkgsStable = import inputs.nixpkgs-stable {
-    system = pkgs.system;
-    config.allowUnfree = true;
-  };
-in {
+{pkgs, ...}: {
   systemd = {
     # Запуск гномовского полкита. Окно ввода пароля для рут доступа
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -36,7 +26,6 @@ in {
     power-profiles-daemon.enable = true;
     upower.enable = true;
     logmein-hamachi.enable = true;
-    # resolved.enable = true;
     # archisteamfarm = {}; # Фарм карточек стима афк. Просто раскомментить мало, надо настроить
   };
 
@@ -98,7 +87,6 @@ in {
     };
 
     appimage = {
-      # Чтоб .appimage работал
       enable = true;
       binfmt = true;
       package = pkgs.appimage-run.override {
@@ -115,48 +103,17 @@ in {
         thunar-volman # Automatic management of removable drives and media
       ];
     };
+
     xfconf.enable = true; # For Thunar configs
-
-    steam = {
-      enable = true;
-      # package = pkgs2.steam;
-      # fontPackages = with pkgs; []; # Font packages to use in Steam
-      # extraPackages = with pkgs; []; # Additional
-      protontricks.enable = true; # Running Winetricks commands for Proton-enabled games.
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    };
-
-    # Оптимизация для игр. https://github.com/FeralInteractive/gamemode
-    gamemode = {
-      enable = true;
-      enableRenice = true;
-      settings.general = {
-        desiredgov = "performance";
-        renice = 10;
-      };
-    };
-
-    # https://github.com/ValveSoftware/gamescope
-    # Подробносни тут https://ventureo.codeberg.page/source/linux-gaming.html#gamescope
-    gamescope.enable = true;
   };
-
-  # Flatpak
-  services.flatpak.packages = [
-    "ru.linux_gaming.PortProton"
-    "org.kde.kdenlive"
-  ];
 
   programs.obs-studio.enableVirtualCamera = true;
 
   environment.systemPackages = with pkgs; [
-    ######################
+    ###############
     ## Some apps ##
-    ######################
+    ###############
 
-    #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # Shell for niri
     quickshell
     swww # Wallpapers
     vicinae # Прикольная штука замена fuzzel
@@ -170,19 +127,18 @@ in {
     qbittorrent-enhanced
     bitwarden-desktop # Password manager
     throne # Vless
-    mission-center # Монитор ресурсов
     gnome-disk-utility # Диски трогат
-    pkgsStable.thunderbird # Почтовый клиент для своей почты
+    thunderbird # Почтовый клиент для своей почты
     pavucontrol # PulseAudio Volume Control
     networkmanagerapplet # Tray for network manager
     brightnessctl # Brightness control for laptop
     blueman # Bluetooth
     helvum # Прокидка звука в другие источники pipewire
-    # gucharmap # Проверка шрифтов. Какой шрифт какие символы отображает
     gparted # Форматирование дисков
     haguichi # Frontend hamachi
     kdePackages.kate # Text editor
     kdePackages.okular
+    kdePackages.kdenlive # Видеоредактор
     localsend # Кидать файлы
     lsfg-vk # Framegen losless scaling
     lsfg-vk-ui # Framegen losless scaling
@@ -199,6 +155,7 @@ in {
     gpu-screen-recorder-gtk # Fast record video
     bazaar # Check Flatpaks
     collector #
+    firefox
 
     ##############
     ## Terminal ##
@@ -208,16 +165,13 @@ in {
     wget
     curl
     git
-    gh
     yt-dlp # Скачивать и смотреть медиа с разных сайтов
     wl-clipboard
     # cliphist
-    # gearlever # Тоже appimage запускать
     # appimage-run
-    nix-melt
-    microfetch
     trash-cli
     android-tools # ADB
+    adb-sync
     ntfs3g # Для NTFS разделов
     ffmpeg_7 # Обработка видео. Нужен всегда и везде как зависимость
     svt-av1 # Кодек для рендера в av1 на проце
@@ -233,14 +187,14 @@ in {
     playerctl # Управление медиа. Плей/пауза и тд
     amdgpu_top # Tool to display AMD GPU usage
     btop-rocm # Монитор ресурсов в терминале
-    pkgsStable.nvtopPackages.full
+    nvtopPackages.full
     icoextract
-    pkgsStable.rocmPackages.rocm-smi # Чтоб в btop было gpu
-    pkgsStable.rocmPackages.rocblas # Для работы hip?
-    pkgsStable.rocmPackages.hipblas # Для работы hip?
-    pkgsStable.rocmPackages.clr # Для работы hip?
-    pkgsStable.rocmPackages.rocm-core
-    pkgsStable.rocmPackages.rocminfo
+    rocmPackages.rocm-smi # Чтоб в btop было gpu
+    rocmPackages.rocblas # Для работы hip?
+    rocmPackages.hipblas # Для работы hip?
+    rocmPackages.clr # Для работы hip?
+    rocmPackages.rocm-core
+    rocmPackages.rocminfo
     timer # A "sleep" with progress. Таймер на пельмени "timer 5m"
     libqalculate # Advanced calculator library
     fzf # Нечёткий поиск
@@ -273,23 +227,10 @@ in {
     ripdrag # Drag and drop
     gpu-screen-recorder #
 
-    ##############
-    ##   NUR    ##
-    ##############
-
-    nur.repos.zerozawa.mikusays # Мику
-
-    ##############
-    ## Browsers ##
-    ##############
-
-    firefox
-
     ##########
     ## Docs ##
     ##########
 
-    # evince # Смотреть документы (так же превью PDF файлов для Thunar) (не читает FB2)
     # papers # Я так понимаю это современная замена для evince под GTK4. Оба от gnome
     libreoffice-fresh # Редактировать документы
     onlyoffice-desktopeditors
@@ -348,42 +289,13 @@ in {
     feh # Нужен в большом количестве софта как зависимость. Может в avif, но криво
 
     ############
-    ## Social ##
-    ############
-
-    ayugram-desktop
-    materialgram
-
-    ###########
-    ## Games ##
-    ###########
-
-    # Мб зависимости
-    # protonup-qt # Управлять версиями proton-ge для steam
-    steam-run # На всякий случай
-    mangohud # Фпс и нагрузку на пк показывает в играх
-    wineWow64Packages.stableFull # support both 32- and 64-bit applications
-    # wineWowPackages.staging # Можно назвать бета версией вайна
-    winetricks # winetricks (all versions)
-    protontricks # Running Winetricks commands for Proton-enabled games
-    goverlay #
-    lutris # Games launcher
-    #heroic # Games launcher
-    faugus-launcher # Запускать игры
-    protonplus # Download proton to Steam Lutris etc
-    prismlauncher # Minecraft
-    # osu-lazer-bin # Osu
-
-    ############
     ## Design ##
     ############
 
-    pkgsStable.krita # Рисовать 1.
-    # darktable #
+    krita # Рисовать 1.
     # gimp # Рисовать 2. Потом выберу что оставить
     # blender-hip # 3д графика и рендер видео
     # hyprpicker # color picker
-    # inkscape # Vector graphic editor
 
     ##################
     ## Productivity ##
@@ -398,7 +310,6 @@ in {
     neovim
     vim
     vscodium
-    zed-editor
 
     ###########
     ## Icons ##
@@ -442,17 +353,11 @@ in {
     libva-utils # Проверяет работоспособность VAAPI?
     clinfo # Проверяет работоспособность OpenCL?
     pamixer # PulseAudio cli (громкость редачу)
+    droidcam
 
-    ######################
+    ###########
     ## Govno ##
-    ######################
-
-    # Python
-    # python3Packages.pip # Python package manager (nvim его не видит)
-    # python3
-
-    # Golang
-    go # Go programming language
+    ###########
 
     cargo
     cmake
@@ -462,10 +367,6 @@ in {
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
-
-    # For nvim
-    ripgrep # grep
-    fd # find
 
     glib
 
@@ -493,6 +394,6 @@ in {
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-gtk3-1.1.07"
+    "ventoy-full-1.1.10"
   ];
 }

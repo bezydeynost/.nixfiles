@@ -2,11 +2,10 @@
   home.packages = with pkgs; [
     ## Some apps
     materialgram
+    ayugram-desktop
 
     ## CLI pkgs
     gh
-    dust
-    conceal
     nix-melt
     microfetch
     speedtest-go
@@ -16,6 +15,5 @@
     ## Dev
     go
     python313
-    android-tools
   ];
 }

@@ -1,11 +1,11 @@
 {
   imports = [
-    ./browsers
     ./terminals
-    #./hx.nix
     ./nixcord.nix
     ./fastfetch.nix
-    ./obs/obs.nix
+    ./obs.nix
     ./spicetify.nix
+    ./zen.nix
+    ./prismlauncher.nix
   ];
 }

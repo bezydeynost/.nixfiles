@@ -1,15 +1,9 @@
 {
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}: {
   imports = [
     ./apps
     ./shell
     ./de-wm
-    #./stylix.nix
+    ./pkgs.nix
   ];
 
   programs.home-manager.enable = true;

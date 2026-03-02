@@ -17,13 +17,10 @@
 
     initrd.kernelModules = ["amdgpu"]; # Мб не обязательно
 
-    extraModprobeConfig = ''options amdgpu ppfeaturemask=0xffffffff v4l2loopback exclusive_caps=1 card_label="Virtual Camera" video_nr=9'';
+    extraModprobeConfig = ''options amdgpu ppfeaturemask=0xffffffff v4l2loopback exclusive_caps=1 devices=1 video_nr=1 card_label="OBS Cam"'';
 
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
+    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
 
-    #kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_lqx;
     kernelParams = [
       "quiet"
@@ -34,6 +31,7 @@
       "amdgpu"
     ];
   };
+  security.polkit.enable = true;
   systemd.settings.Manager = {
     DefaultTimeoutStopSec = "10s";
   };

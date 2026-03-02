@@ -11,7 +11,7 @@
       obs-composite-blur # Блюрить порнуху https://github.com/FiniteSingularity/obs-composite-blur
       obs-backgroundremoval # Удалить или заблюрить фон на вебке
       #input-overlay # Show keyboard, gamepad and mouse input on stream
-      droidcam-obs # Use your phone as a camera directly in OBS Studio https://droidcam.app/obs/
+      #droidcam-obs # Use your phone as a camera directly in OBS Studio https://droidcam.app/obs/
     ];
   };
 
