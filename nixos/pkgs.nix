@@ -165,6 +165,7 @@
     wget
     curl
     git
+    gh
     yt-dlp # Скачивать и смотреть медиа с разных сайтов
     wl-clipboard
     # cliphist

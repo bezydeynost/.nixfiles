@@ -5,7 +5,6 @@
     ayugram-desktop
 
     ## CLI pkgs
-    gh
     nix-melt
     microfetch
     speedtest-go
