@@ -1,22 +1,21 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.nixcord.homeModules.nixcord
     /home/falguren/.nixcord/nixcordlsfm.nix
   ];
   programs.nixcord = {
     enable = true;
-    discord = {
-      vencord.enable = false;
-      equicord.enable = true;
-    };
-    vesktop.enable = false;
+    discord.enable = true;
     equibop.enable = true;
     config = {
       autoUpdate = true;
       plugins = {
         ClearURLs.enable = true;
         callTimer.enable = true;
-        anonymiseFileNames.enable = true;
         betterUploadButton.enable = true;
         gameActivityToggle.enable = true;
         messageLoggerEnhanced.enable = true;
