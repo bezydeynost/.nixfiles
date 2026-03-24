@@ -10,7 +10,7 @@
   stylix = {
     # Wiki - https://stylix.danth.me/options/nixos.html
     enable = true;
-    enableReleaseChecks = false;
+    enableReleaseChecks = true;
     autoEnable = true;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml"; # Если хочешь генерить тему из обоев, то удали эту строку
@@ -56,7 +56,5 @@
       dark = "MoreWaita";
       package = pkgs.morewaita-icon-theme;
     };
-    #targets = {
-    #};
   };
 }

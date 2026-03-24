@@ -30,7 +30,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    osu-lazer-bin # appimage ver with online score
     steam-run # На всякий случай
     mangohud # Фпс и нагрузку на пк показывает в играх
     #wineWow64Packages.stableFull # support both 32- and 64-bit applications
@@ -39,8 +38,8 @@
     protontricks # Running Winetricks commands for Proton-enabled games
     goverlay #
     lutris # Games launcher
-    # heroic # Games launcher
     faugus-launcher # Запускать игры
     protonplus # Download proton to Steam Lutris etc
+    ryubing
   ];
 }

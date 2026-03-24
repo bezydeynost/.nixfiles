@@ -4,12 +4,10 @@
     text = ''
 
           // === Startup ===
-      spawn-sh-at-startup 		"vicinae server"
       spawn-at-startup        	        "dms" "run"
       spawn-at-startup		        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
       spawn-at-startup		        "/usr/lib/xdg-desktop-portal-gnome"
       spawn-at-startup		        "flameshot"
-      spawn-at-startup	        	"nm-applet" "--indicator"
       spawn-at-startup	        	"xwayland-satellite"
       spawn-at-startup	        	"bash" "-c" "wl-paste --watch cliphist store &"
       spawn-at-startup	        	"easyeffects"
@@ -34,12 +32,12 @@
           Mod+Return			hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
           Mod+T			        hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
           Mod+Shift+Return		hotkey-overlay-title="Open Kitty" { spawn "kitty"; }
-          //Mod+D			hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-          Mod+D		        	repeat=false { spawn "vicinae" "toggle"; }
-          Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+          Mod+D			        hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+          //Mod+D		       	repeat=false { spawn "vicinae" "toggle"; }
+          Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+          //Mod+V		       	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
           Mod+Comma	       		hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
           Mod+N		        	hotkey-overlay-title="Notifications History" { spawn "dms" "ipc" "call" "notifications" "open"; }
-          //Mod+M			hotkey-overlay-title="Task Manager" { spawn "missioncenter"; }
           Mod+M			        hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
 
           // === Other Apps ===
@@ -206,7 +204,6 @@
       	XDG_SESSION_TYPE "wayland"
       	QT_QPA_PLATFORM "wayland"
       	QT_QPA_PLATFORMTHEME "gtk3"
-       	QT_QPA_PLATFORMTHEME_QT6 "gtk3"
       	ELECTRON_OZONE_PLATFORM_HINT "auto"
       }
 
@@ -278,7 +275,7 @@
       }
 
       layout {
-      	gaps 8
+      	gaps 10
       	//center-focused-column "on-overflow"
       	//empty-workspace-above-first
       	always-center-single-column

@@ -8,7 +8,6 @@
   ];
   programs.zen-browser = {
     enable = true;
-    suppressXdgMigrationWarning = true;
 
     policies = {
       AutofillAddressEnabled = false;
@@ -37,8 +36,7 @@
         bitwarden
         clearurls
         darkreader
-        decentraleyes
-        istilldontcareaboutcookies
+        localcdn
         material-icons-for-github
         privacy-badger
         return-youtube-dislikes

@@ -38,8 +38,8 @@
       libraries = with pkgs; [
         # Для большинства программ
         stdenv.cc.cc
-        gtk3
         glib
+        gtk3
         cairo
         gdk-pixbuf
         pango
@@ -48,12 +48,11 @@
         harfbuzz
         libpng
         expat
-        xorg.libX11
-        xorg.libXrandr
-        xorg.libxcb
+        libX11
+        libXrandr
+        libxcb
 
         # Creamlinux
-        gtk3
         webkitgtk_4_1
         libsoup_3
         cairo
@@ -96,7 +95,6 @@
 
     quickshell
     swww # Wallpapers
-    vicinae # Прикольная штука замена fuzzel
 
     #########
     ## GUI ##
@@ -113,7 +111,7 @@
     # networkmanagerapplet # Tray for network manager
     brightnessctl # Brightness control for laptop
     # blueman # Bluetooth
-    helvum # Прокидка звука в другие источники pipewire
+    crosspipe # Прокидка звука в другие источники pipewire
     gparted # Форматирование дисков
     haguichi # Frontend hamachi
     kdePackages.kate # Text editor
@@ -136,6 +134,7 @@
     bazaar # Check Flatpaks
     collector #
     firefox
+    ungoogled-chromium
     materialgram
     ayugram-desktop
 
@@ -213,6 +212,9 @@
     speedtest-go
     bitwarden-cli
     nur.repos.zerozawa.mikusays
+    #nur.repos.forkprince.fluxer-bin
+    fractal
+    element-desktop
 
     ##########
     ## Docs ##
@@ -302,6 +304,8 @@
     ###########
 
     adwaita-icon-theme
+    adwaita-qt
+    adwaita-qt6
     libsForQt5.breeze-icons # qt5
     kdePackages.breeze-icons # qt6
     papirus-icon-theme
@@ -340,6 +344,8 @@
     clinfo # Проверяет работоспособность OpenCL?
     pamixer # PulseAudio cli (громкость редачу)
     droidcam
+    kdePackages.qt6ct
+    libsForQt5.qt5ct
 
     ###########
     ## Govno ##
@@ -382,6 +388,6 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-full-1.1.10"
+    "ventoy-1.1.10"
   ];
 }

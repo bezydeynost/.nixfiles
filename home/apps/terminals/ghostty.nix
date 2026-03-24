@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
