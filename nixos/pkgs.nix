@@ -25,7 +25,7 @@
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
     upower.enable = true;
-    logmein-hamachi.enable = true;
+    #logmein-hamachi.enable = true;
     # archisteamfarm = {}; # Фарм карточек стима афк. Просто раскомментить мало, надо настроить
   };
 
@@ -95,6 +95,7 @@
 
     quickshell
     swww # Wallpapers
+    helium-browser
 
     #########
     ## GUI ##
@@ -106,14 +107,13 @@
     bitwarden-desktop # Password manager
     throne # Vless
     gnome-disk-utility # Диски трогат
-    thunderbird # Почтовый клиент для своей почты
     pavucontrol # PulseAudio Volume Control
     # networkmanagerapplet # Tray for network manager
     brightnessctl # Brightness control for laptop
     # blueman # Bluetooth
     crosspipe # Прокидка звука в другие источники pipewire
     gparted # Форматирование дисков
-    haguichi # Frontend hamachi
+    #haguichi # Frontend hamachi
     kdePackages.kate # Text editor
     kdePackages.okular
     kdePackages.kdenlive # Видеоредактор
@@ -133,8 +133,6 @@
     gpu-screen-recorder-gtk # Fast record video
     bazaar # Check Flatpaks
     collector #
-    firefox
-    ungoogled-chromium
     materialgram
     ayugram-desktop
 
@@ -209,18 +207,14 @@
     gpu-screen-recorder #
     microfetch
     nix-melt
-    speedtest-go
     bitwarden-cli
     nur.repos.zerozawa.mikusays
-    #nur.repos.forkprince.fluxer-bin
-    fractal
     element-desktop
 
     ##########
     ## Docs ##
     ##########
 
-    # papers # Я так понимаю это современная замена для evince под GTK4. Оба от gnome
     libreoffice-fresh # Редактировать документы
     onlyoffice-desktopeditors
     hunspell # Проверка орфографии для libreoffice
@@ -232,7 +226,6 @@
     ## File managers ##
     ###################
 
-    # ranger # Terminal file manager
     nautilus # File manager
     yazi # Terminal File manager
     thunar # GUI file manager
@@ -270,7 +263,6 @@
     tauon # Музыкальный плееер
     rhythmbox # Музыкальный плееер
     picard # Массовый редактор метаданных музыки
-    # mousai # Опенсорс шазам. Со временем просит платный api
     mpv # Смотреть видео
     imv # Смотреть картинки
     gthumb
@@ -283,7 +275,6 @@
     krita # Рисовать 1.
     # gimp # Рисовать 2. Потом выберу что оставить
     # blender-hip # 3д графика и рендер видео
-    # hyprpicker # color picker
 
     ##################
     ## Productivity ##
@@ -339,7 +330,6 @@
 
     fontconfig
     zlib
-    # google-fonts
     libva-utils # Проверяет работоспособность VAAPI?
     clinfo # Проверяет работоспособность OpenCL?
     pamixer # PulseAudio cli (громкость редачу)
@@ -388,6 +378,6 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.10"
+    "ventoy-gtk3-1.1.10"
   ];
 }

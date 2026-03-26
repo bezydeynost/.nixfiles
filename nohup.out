@@ -1,0 +1,75 @@
+dms 1.5-beta+date=2026-03-20_7ca1d23
+                                  
+██████╗  █████╗ ███╗   ██╗██╗  ██╗
+██╔══██╗██╔══██╗████╗  ██║██║ ██╔╝
+██║  ██║███████║██╔██╗ ██║█████╔╝ 
+██║  ██║██╔══██║██║╚██╗██║██╔═██╗ 
+██████╔╝██║  ██║██║ ╚████║██║  ██╗
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝
+  INFO  go: Spawning quickshell with -p /nix/store/gsr5vgcm6rm1hm88rbv0fkcgxz9v15gf-dms-shell-1.5-beta+date=2026-03-20_7ca1d23/share/quickshell/dms
+  INFO  go: DMS API Server listening on: /run/user/1000/danklinux-68348.sock
+  INFO  go: API Version: 24
+  INFO  go: Protocol: JSON over Unix socket
+  INFO  go: Request format: {"id": <any>, "method": "...", "params": {...}}
+  INFO  go: Response format: {"id": <any>, "result": {...}} or {"id": <any>, "error": "..."}
+  INFO  go:
+  INFO  go: Initializing managers...
+  INFO  go:
+  INFO  go: Attempting to initialize Wayland gamma control...
+loginctl: using XDG_SESSION_ID=3
+  INFO  go: Network backend detection: NetworkManager present. Using NM API.
+  INFO  go: Wayland gamma control initialized successfully
+  INFO  go: Theme mode automation manager initialized
+  INFO  go: AppPicker manager initialized
+  INFO  go: Attempting to initialize DWL IPC...
+  INFO  go: DWL: starting registry setup
+  INFO  go: DWL: Bound wl_output id=9 registry_name=42
+  INFO  go: DWL: manager not found in registry
+  INFO  go: ExtWorkspace capability detected and will be available on subscription
+  INFO  go: Attempting to initialize WlrOutput management...
+  INFO  go: WlrOutput: starting registry setup
+  INFO  go: WlrOutput: registry setup complete (events will be processed async)
+  INFO  go: WlrOutput management initialized successfully
+  INFO  go:
+  INFO  go: Ready! Capabilities: [plugins gamma browser extworkspace wlroutput theme.auto]
+  INFO  go: Brightness manager initialized
+  INFO  go: Attempting to initialize clipboard manager...
+  INFO  go: WlrOutput: found zwlr_output_manager_v1
+  INFO  go: WlrOutput: manager bound successfully
+  INFO  go: Bound ext_data_control_manager_v1
+  INFO  go: Bound wl_seat
+  INFO  go: Sysfs backend initialized with 0 devices
+  INFO  go: Udev monitor started for backlight/drm/i2c events
+  WARN  go: Screensaver name org.freedesktop.ScreenSaver already owned by another process
+  INFO  go: [BluezManager] found adapter: /org/bluez/hci0
+  INFO  go: Claimed org.gnome.ScreenSaver on session bus
+  INFO  go: Screensaver listener initialized
+  INFO  go: Freedesktop manager initialized
+  INFO  go: Logind backend initialized - will use for brightness control
+  INFO  go: DBus manager initialized
+  INFO  go: GeoClue2 has no fix yet, seeding with IP location
+  INFO  go: [BluezAgent] registered at /com/danklinux/bluez/agent with capability KeyboardDisplay
+  INFO  go: Bluez manager initialized
+  INFO  go: Data device setup complete
+  INFO  go: Clipboard manager initialized successfully
+  INFO  go: Wayland event dispatcher started
+  INFO  go: Loginctl manager initialized
+[32m  INFO[0m: Launching config: "/nix/store/gsr5vgcm6rm1hm88rbv0fkcgxz9v15gf-dms-shell-1.5-beta+date=2026-03-20_7ca1d23/share/quickshell/dms/shell.qml"
+[32m  INFO[0m: Shell ID: "1b3fa624625df32231a797ea9cb0041b" Path ID "1b3fa624625df32231a797ea9cb0041b"
+[32m  INFO[0m: Saving logs to "/run/user/1000/quickshell/by-id/wqg1b45ict/log.qslog"
+  INFO  go: [SecretAgent] Registered with NetworkManager (id=com.danklinux.NMAgent, unique name=:1.315, fixed path=/org/freedesktop/NetworkManager/SecretAgent)
+  INFO  go: Network manager initialized
+  INFO  go: Evdev manager initialized
+  INFO  go: Seeded GeoClue2 with IP location
+  INFO  go: Location manager initialized
+  INFO  go: DDC backend initialized
+[32m  INFO[97m qml[0m: NetworkService: Initializing...
+[32m  INFO[97m qml[0m: PolkitService: Initialized successfully
+[32m  INFO[97m qml[0m: IdleService: Initialized with idle monitoring support
+[33m  WARN[0m: Tried to register singleton PowerProfileWatcher_QMLTYPE_55(0x7faeef09f1c0) which is not the root component of its file QUrl("qs:@/qs/Services/PowerProfileWatcher.qml")
+[33m  WARN[97m quickshell.I3.ipc[0m: $I3SOCK is unset. Trying $SWAYSOCK.
+[33m  WARN[97m quickshell.I3.ipc[0m: $SWAYSOCK and I3SOCK are unset. Cannot connect to socket.
+[33m  WARN[0m: $HYPRLAND_INSTANCE_SIGNATURE is unset. Cannot connect to hyprland.
+[32m  INFO[0m: Configuration Loaded
+[32m  INFO[97m qt.multimedia.ffmpeg[0m: Using Qt multimedia with FFmpeg version 8.0.1 GPL version 3 or later
+[33m  WARN[0m: pw_core_sync timed out

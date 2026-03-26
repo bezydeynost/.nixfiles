@@ -10,28 +10,19 @@
   stylix = {
     # Wiki - https://stylix.danth.me/options/nixos.html
     enable = true;
-    enableReleaseChecks = true;
+    enableReleaseChecks = false;
     autoEnable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml"; # Если хочешь генерить тему из обоев, то удали эту строку
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
-    #image = config.lib.stylix.pixel "base00"; # Вместо обоев будет заливка фона одним цветом из темы
-    #image = /home/falguren/Pictures/Wallpapers/Sunset-Forrest.png; # Если хочешь норм обои, то просто укажи путь до изображения
-
-    #image = pkgs.fetchurl {
-    #  url = "https://w.wallhaven.cc/full/je/wallhaven-jewvzy.jpg";
-    #  hash = "sha256-UjQnjABGjGslIF0bXIH3B8R6i6E85nJRH7ayXToaYqw=";
-    #};
-
-    #colorGeneration = {
-    #  polarity = "dark";
-    #  scheme = "content";
-    #};
-
-    polarity = "dark"; # "light" or "either". Если "either", то он сам определяет что будет красивее
+    polarity = "dark";
 
     fonts = {
       sansSerif = {
+        name = "Adwaita Sans";
+        package = pkgs.adwaita-fonts;
+      };
+      serif = {
         name = "Adwaita Sans";
         package = pkgs.adwaita-fonts;
       };
@@ -48,13 +39,17 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 18; # default = 32
+      size = 16; # default = 32
     };
 
     icons = {
       enable = true;
-      dark = "MoreWaita";
-      package = pkgs.morewaita-icon-theme;
+      dark = "Colloid";
+      package = pkgs.colloid-icon-theme;
+    };
+
+    targets = {
+      gtk.enable = true;
     };
   };
 }

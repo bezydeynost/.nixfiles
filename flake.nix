@@ -97,6 +97,15 @@
             ];
           };
         }
+        ({
+          config,
+          pkgs,
+          ...
+        }: {
+          nixpkgs.overlays = [
+            (import ./pkgs/default.nix)
+          ];
+        })
       ];
     };
   };

@@ -20,6 +20,7 @@
     unifont
     unifont_upper
     times-newer-roman
+    google-fonts
   ];
 
   fonts.fontconfig = {
