@@ -25,7 +25,7 @@
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
     upower.enable = true;
-    #logmein-hamachi.enable = true;
+    # logmein-hamachi.enable = true;
     # archisteamfarm = {}; # Фарм карточек стима афк. Просто раскомментить мало, надо настроить
   };
 
@@ -94,7 +94,7 @@
     ###############
 
     quickshell
-    swww # Wallpapers
+    #awww # Wallpapers
     helium-browser
 
     #########
@@ -108,12 +108,10 @@
     throne # Vless
     gnome-disk-utility # Диски трогат
     pavucontrol # PulseAudio Volume Control
-    # networkmanagerapplet # Tray for network manager
     brightnessctl # Brightness control for laptop
-    # blueman # Bluetooth
     crosspipe # Прокидка звука в другие источники pipewire
     gparted # Форматирование дисков
-    #haguichi # Frontend hamachi
+    # haguichi # Frontend hamachi
     kdePackages.kate # Text editor
     kdePackages.okular
     kdePackages.kdenlive # Видеоредактор
@@ -135,6 +133,8 @@
     collector #
     materialgram
     ayugram-desktop
+    element-desktop
+    tor-browser
 
     ##############
     ## Terminal ##
@@ -147,7 +147,6 @@
     gh
     yt-dlp # Скачивать и смотреть медиа с разных сайтов
     wl-clipboard
-    # cliphist
     trash-cli
     android-tools # ADB
     adb-sync
@@ -167,7 +166,8 @@
     mediainfo # Info fow FLAC
     amdgpu_top # Tool to display AMD GPU usage
     btop-rocm # Монитор ресурсов в терминале
-    nvtopPackages.full
+    #nvtopPackages.full
+    nvtopPackages.amd
     icoextract
     rocmPackages.rocm-smi # Чтоб в btop было gpu
     rocmPackages.rocblas # Для работы hip?
@@ -209,7 +209,6 @@
     nix-melt
     bitwarden-cli
     nur.repos.zerozawa.mikusays
-    element-desktop
 
     ##########
     ## Docs ##
@@ -263,6 +262,7 @@
     tauon # Музыкальный плееер
     rhythmbox # Музыкальный плееер
     picard # Массовый редактор метаданных музыки
+    mousai # Опенсорс шазам. Со временем просит платный api
     mpv # Смотреть видео
     imv # Смотреть картинки
     gthumb
@@ -272,8 +272,7 @@
     ## Design ##
     ############
 
-    krita # Рисовать 1.
-    # gimp # Рисовать 2. Потом выберу что оставить
+    krita # Рисовать
     # blender-hip # 3д графика и рендер видео
 
     ##################
@@ -288,7 +287,6 @@
 
     neovim
     vim
-    vscodium
 
     ###########
     ## Icons ##
@@ -333,7 +331,7 @@
     libva-utils # Проверяет работоспособность VAAPI?
     clinfo # Проверяет работоспособность OpenCL?
     pamixer # PulseAudio cli (громкость редачу)
-    droidcam
+    # droidcam
     kdePackages.qt6ct
     libsForQt5.qt5ct
 
@@ -361,6 +359,7 @@
     lmstudio # Local AP
     sillytavern #
     koboldcpp #
+    ventoy-full-gtk
 
     ############
     ## Архивы ##

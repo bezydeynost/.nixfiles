@@ -10,7 +10,7 @@
         editor = true;
       };
       efi.canTouchEfiVariables = true;
-      timeout = 0;
+      timeout = 3;
     };
 
     tmp.cleanOnBoot = true;
@@ -28,6 +28,9 @@
       "v4l2loopback"
     ];
   };
+
+  services.displayManager.gdm.enable = true;
+
   security.polkit.enable = true;
   systemd.settings.Manager = {
     DefaultTimeoutStopSec = "10s";

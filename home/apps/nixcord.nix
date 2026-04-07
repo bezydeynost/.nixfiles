@@ -1,7 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.nixcord.homeModules.nixcord
-    /home/falguren/.nixcord/nixcordlsfm.nix
+    /home/falguren/.nixmodules/nixcordlsfm.nix
   ];
   programs.nixcord = {
     enable = true;

@@ -16,7 +16,7 @@ in {
       beautifulLyrics
       hidePodcasts
       shuffle
-      lastfm
+      #lastfm
     ];
   };
 }

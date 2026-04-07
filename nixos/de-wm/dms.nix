@@ -19,8 +19,8 @@
     enableClipboardPaste = true;
   };
 
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor.name = "niri";
-  };
+  #services.displayManager.dms-greeter = {
+  #  enable = true;
+  #  compositor.name = "niri";
+  #};
 }

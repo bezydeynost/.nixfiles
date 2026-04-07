@@ -1,6 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.zapret-discord-youtube.nixosModules.default
+    /home/falguren/.nixmodules/zapret-list.nix
   ];
   services.zapret-discord-youtube = {
     enable = true;
