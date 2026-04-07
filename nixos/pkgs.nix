@@ -94,7 +94,7 @@
     ###############
 
     quickshell
-    #awww # Wallpapers
+    awww # Wallpapers
     helium-browser
 
     #########
