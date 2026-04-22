@@ -99,6 +99,7 @@
     # ksnip # Скрин экрана. Аналог - Flameshot
     qbittorrent-enhanced
     bitwarden-desktop # Password manager
+    keepassxc
     throne # Vless
     gnome-disk-utility # Диски трогат
     pavucontrol # PulseAudio Volume Control

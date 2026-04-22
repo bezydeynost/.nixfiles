@@ -7,7 +7,6 @@
     noto-fonts-monochrome-emoji
     nerd-fonts.jetbrains-mono
     nerd-fonts.noto
-    noto-fonts
     nerd-fonts.symbols-only
     nerd-fonts.caskaydia-mono
     carlito # Совместим с Calibri, разработан как его свободная альтернатива. Без засечек
