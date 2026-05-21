@@ -193,6 +193,10 @@
      	open-on-output "DP-1"
      }
 
+     workspace "music" {
+        open-on-output "DP-1"
+     }
+
      	screenshot-path "~/Pictures/Screenshots/Screenshot %d-%m-%y %H-%M-%S.png"
      	prefer-no-csd
 
@@ -328,7 +332,7 @@
          }
      }
 
-     // Workspace "browser" rules
+     // browser
 
      window-rule {
      	match app-id="zen-beta$" title="^Картинка в картинке$"
@@ -351,7 +355,7 @@
      	open-on-workspace "browser"
      }
 
-     // Workspace "chat" rules
+     // chat
 
      window-rule {
      	match app-id="discord"
@@ -367,13 +371,28 @@
      	open-on-workspace "chat"
      }
 
-     // Lounge
+     // lounge
+
+     window-rule {
+        match app-id="steam"
+        open-on-workspace "lounge"
+        open-maximized true
+     }
+
+      window-rule {
+     	match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+     	default-floating-position x=10 y=10 relative-to="bottom-right"
+     	open-focused false
+     }
+
+     // music
 
      window-rule {
      	match app-id="com.github.th_ch.youtube_music"
      	match app-id="spotify"
-       open-maximized true
-     	open-on-workspace "lounge"
+        match app-id="tauonmb"
+        open-maximized true
+     	open-on-workspace "music"
      }
 
      // Etc
@@ -391,23 +410,6 @@
      window-rule {
      	match app-id="kitty"
      	draw-border-with-background false
-     }
-
-     window-rule {
-     	match app-id="steam"
-     	open-maximized true
-     }
-
-     window-rule {
-     	match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-     	default-floating-position x=10 y=10 relative-to="bottom-right"
-     	open-focused false
-     }
-
-     window-rule {
-     	match app-id=r#"^swaync-notification-window$"#
-     	open-focused false
-     	match is-focused=true
      }
 
      window-rule {
@@ -464,7 +466,7 @@
      }
 
      window-rule {
-         match app-id="^kitty$"
+         match app-id="^foot$"
          match app-id="^Alacritty$"
          match app-id="^com.mitchellh.ghostty$"
          match app-id="^org.kde.dolphin$"

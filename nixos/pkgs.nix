@@ -40,6 +40,8 @@
         at-spi2-atk
         harfbuzz
         icu
+        nspr
+        nss
       ];
     };
 
@@ -103,6 +105,7 @@
     floorp-bin
     turntable
     samira
+    goofcord
 
     kdePackages.okular
     kdePackages.kdenlive # Видеоредактор
@@ -114,6 +117,7 @@
     kdePackages.sddm-kcm # SDDM configuration module
     kdePackages.dolphin
     kdePackages.kservice
+    kdePackages.kate
     kdiff3 # File/directory comparison tool
     kdePackages.qt6ct
     libsForQt5.qt5ct
@@ -232,6 +236,7 @@
     loupe
 
     krita # Рисовать
+    gimp
     # blender-hip # 3д графика и рендер видео
 
     obsidian # Заметки

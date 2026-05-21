@@ -32,17 +32,26 @@
         volumeBooster.enable = true;
         whoReacted.enable = true;
         noBlockedMessages.enable = true;
-        questify.enable = true;
         youtubeAdblock.enable = true;
         FullVCPFP.enable = true;
-        fakeNitro.enable = true;
-        fakeNitro.enableEmojiBypass = true;
-        fakeNitro.enableStickerBypass = true;
         SaveFavoriteGIFs.enable = true;
         silentTyping.enable = true;
         spotifyActivityToggle.enable = true;
         spotifyCrack.enable = true;
         petpet.enable = true;
+        questify = {
+          enable = true;
+          allowChangingDangerousSettings = true;
+          makeMobileVideoQuestsDesktopCompatible = true;
+          resumeInterruptedQuests = true;
+        };
+        fakeNitro = {
+          enable = true;
+          enableEmojiBypass = true;
+          enableStickerBypass = true;
+          transformEmojis = false;
+          transformStickers = false;
+        };
         betterFolders = {
           enable = true;
           closeAllFolders = true;
