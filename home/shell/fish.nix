@@ -15,6 +15,9 @@
       lt = "eza --tree --icons";
       llt = "eza -l --tree --icons";
       rm = "rm -i";
+      py = "python";
+      find = "fd";
+      grep = "rg";
       rbs = "sudo nixos-rebuild switch --impure --flake ${flakeDir}";
       rbb = "sudo nixos-rebuild boot --impure --flake ${flakeDir}";
       upd = "sudo nix flake update --flake ${flakeDir}";

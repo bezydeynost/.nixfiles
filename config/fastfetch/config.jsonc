@@ -1,0 +1,88 @@
+{
+  "display": {
+    "color": {
+      "keys": "green"
+    },
+    "separator": " ▸ "
+  },
+  "logo": {
+    "height": 20,
+    "padding": {
+      "left": 4,
+      "right": 4,
+      "top": 2
+    },
+    "source": "~/.config/fastfetch/pngs/Shinobu.png"
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "format": "{#32}╭──────────── Software ────────────",
+      "type": "custom"
+    },
+    {
+      "key": "│ OS",
+      "type": "os"
+    },
+    {
+      "key": "│ Kernel",
+      "type": "kernel"
+    },
+    {
+      "format": "{all}",
+      "key": "│ Packages",
+      "type": "packages"
+    },
+    {
+      "key": "│ Shell",
+      "type": "shell"
+    },
+    {
+      "key": "│ WM",
+      "type": "wm"
+    },
+    {
+      "key": "│ Terminal",
+      "type": "terminal"
+    },
+    {
+      "format": "{#32}├──────────── Hardware ────────────",
+      "type": "custom"
+    },
+    {
+      "key": "│ CPU",
+      "type": "cpu"
+    },
+    {
+      "key": "│ GPU",
+      "type": "gpu"
+    },
+    {
+      "key": "│ Memory",
+      "type": "memory"
+    },
+    {
+      "key": "│ Disk",
+      "type": "disk"
+    },
+    {
+      "format": "{#32}├───────────── Uptime ─────────────",
+      "type": "custom"
+    },
+    {
+      "key": "│ Uptime",
+      "type": "uptime"
+    },
+    {
+      "key": "│ OS Age",
+      "text": "days=$(( ($(date +%s) - $(stat -c %W /)) / 86400 )); echo $days days",
+      "type": "command"
+    },
+    {
+      "format": "{#32}╰──────────────────────────────────",
+      "type": "custom"
+    }
+  ]
+}
+

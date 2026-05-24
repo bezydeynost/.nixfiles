@@ -1,8 +1,8 @@
-{
+{config, ...}: {
   imports = [
     ./apps
     ./shell
-    ./de-wm
+    #./de-wm
   ];
 
   programs.home-manager.enable = true;
@@ -27,6 +27,11 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
-    shell.enableFishIntegration = true;
+  };
+
+  xdg.configFile = {
+    "niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixfiles/config/niri";
+
+    "fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixfiles/config/fastfetch";
   };
 }

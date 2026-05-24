@@ -1,10 +1,9 @@
 {lib, ...}: {
   programs.ghostty = {
     enable = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
-    #enableZshIntegration = true;
-
+    #enableBashIntegration = true;
+    #enableFishIntegration = true;
+    enableZshIntegration = true;
     settings = {
       window-inherit-working-directory = false;
       font-size = lib.mkForce 13;

@@ -13,7 +13,7 @@
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root" "bezydeynost"];
+      trusted-users = ["root"];
       auto-optimise-store = true;
       warn-dirty = false;
     };
@@ -31,8 +31,10 @@
   };
 
   environment.sessionVariables = {
-    TERMINAL = "ghostty";
+    TERMINAL = "foot";
   };
+
+  environment.pathsToLink = ["/share/zsh"];
 
   nixpkgs.config.allowUnfree = true;
 

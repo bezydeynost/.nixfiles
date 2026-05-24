@@ -29,9 +29,9 @@
 
 
          // === Application Launchers ===
-         Mod+Return			hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
-         Mod+T			        hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
-         Mod+Shift+Return		hotkey-overlay-title="Open Kitty" { spawn "kitty"; }
+         Mod+Return			hotkey-overlay-title="Open Foot" { spawn "foot"; }
+         Mod+T			        hotkey-overlay-title="Open Foot" { spawn "foot"; }
+         Mod+Shift+Return		hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
          Mod+D			        hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
          Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
          Mod+Comma	       		hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
@@ -163,6 +163,11 @@
          Mod+C		        	{ center-column; }
          Mod+Ctrl+C 		        { center-visible-columns; }
          Mod+F		        	{ maximize-column; }
+
+         // === Tabs ===
+         Mod+Shift+W                    { toggle-column-tabbed-display; }
+         Mod+BracketLeft                { consume-or-expel-window-left; }
+         Mod+BracketRight               { consume-or-expel-window-right; }
 
          // === Manual Sizing ===
          Mod+Minus			{ set-column-width "-10%"; }

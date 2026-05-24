@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   services = {
     gvfs.enable = true;
     flatpak.enable = true;
@@ -71,6 +75,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.noctaliav4.packages.${pkgs.stdenv.hostPlatform.system}.default
     flameshot
     qbittorrent-enhanced
     bitwarden-desktop
@@ -133,6 +139,7 @@
     gh
     yt-dlp # Скачивать и смотреть медиа с разных сайтов
     wl-clipboard
+    cliphist
     trash-cli
     android-tools # ADB
     adb-sync
@@ -186,6 +193,7 @@
     ripdrag # Drag and drop
     gpu-screen-recorder #
     microfetch # I use nixos btw
+    fastfetch
     nix-melt
     nur.repos.zerozawa.mikusays
     xhost
@@ -194,6 +202,9 @@
     awww # Wallpaper
     opus-tools
     music-discord-rpc
+    chafa
+    wooz
+    mpvpaper
 
     libreoffice-fresh # Редактировать документы
     onlyoffice-desktopeditors

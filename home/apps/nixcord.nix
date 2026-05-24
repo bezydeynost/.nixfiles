@@ -39,18 +39,12 @@
         spotifyActivityToggle.enable = true;
         spotifyCrack.enable = true;
         petpet.enable = true;
+        fakeNitro.enable = true;
         questify = {
           enable = true;
           allowChangingDangerousSettings = true;
           makeMobileVideoQuestsDesktopCompatible = true;
           resumeInterruptedQuests = true;
-        };
-        fakeNitro = {
-          enable = true;
-          enableEmojiBypass = true;
-          enableStickerBypass = true;
-          transformEmojis = false;
-          transformStickers = false;
         };
         betterFolders = {
           enable = true;

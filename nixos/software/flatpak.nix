@@ -9,6 +9,7 @@
       onCalendar = "weekly";
     };
     packages = [
+      "org.freedownloadmanager.Manager"
     ];
   };
 }
