@@ -1,6 +1,7 @@
 {
   imports = [
     /etc/nixos/hardware-configuration.nix
+    /etc/nixos/happ-nixos/happ-module.nix
     ./de-wm
     ./hardware
     ./network

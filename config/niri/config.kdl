@@ -12,7 +12,6 @@
  spawn-at-startup                       "zen-beta"
  spawn-at-startup                       "Telegram"
  spawn-at-startup                       "discord"
- spawn-at-startup                       "steam"
 
  config-notification {
      disable-failed
@@ -34,7 +33,7 @@
      Mod+T			        hotkey-overlay-title="Open Foot" { spawn "foot"; }
      Mod+Shift+Return		        hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
      Mod+D			        hotkey-overlay-title="Application Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }     
-     Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn-sh "noctalia-shell ipc call launcher clipboard"; }     
+     Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }     
      Mod+Comma	       	        	hotkey-overlay-title="Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }   
      Mod+N		        	hotkey-overlay-title="Notifications History" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }         
      Mod+M			        hotkey-overlay-title="Task Manager" { spawn-sh "noctalia-shell ipc call systemMonitor toggle"; }    
@@ -396,7 +395,7 @@
 
  window-rule {
  	match app-id="com.github.th_ch.youtube_music"
- 	match app-id="spotify"
+ 	match app-id="Spotify"
     match app-id="tauonmb"
     open-maximized true
  	open-on-workspace "music"
@@ -426,8 +425,18 @@
  	open-floating true
  }
 
- window-rule {
+  window-rule {
    match app-id=r#"org.quickshell$"#
+
+   open-floating true
+ }
+
+ window-rule {
+   match app-id="zoom" title=r#"^annotate_toolbar$"#
+   default-floating-position x=10 y=40 relative-to="bottom-left"
+   default-column-width { fixed 100; }
+   default-window-height { fixed 100; }
+
    open-floating true
  }
 
@@ -441,7 +450,7 @@
  layer-rule {
  	match namespace="awww-daemon"
  	match namespace="^quickshell$"
-         match namespace="^noctalia-wallpaper*"
+        match namespace="^noctalia-wallpaper*"
  	place-within-backdrop true
  }
 

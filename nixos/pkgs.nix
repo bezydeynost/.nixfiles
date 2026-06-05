@@ -11,6 +11,7 @@
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
     upower.enable = true;
+    happ.enable = true;
   };
 
   systemd.services.lactd.enable = true;
@@ -77,6 +78,8 @@
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.noctaliav4.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.helium.packages.${system}.default
+    clash-verge-rev
     flameshot
     qbittorrent-enhanced
     bitwarden-desktop
@@ -107,11 +110,8 @@
     element-desktop
     distrobox
     darktable
-    firefox
-    floorp-bin
     turntable
     samira
-    goofcord
 
     kdePackages.okular
     kdePackages.kdenlive # Видеоредактор
@@ -254,6 +254,7 @@
 
     neovim
     vim
+    zed-editor
 
     adwaita-icon-theme
     adwaita-qt

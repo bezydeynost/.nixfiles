@@ -3,7 +3,7 @@
 | env      | attribute  |
 | -------- | ---------- |
 | de       | niri + dms |
-| shell    | fish       |
+| shell    | zsh        |
 | terminal | ghostty    |
 | editor   | nvf(nvim)  |
 

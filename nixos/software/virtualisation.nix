@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   virtualisation = {
     docker = {
       enable = true;
@@ -8,6 +8,7 @@
     };
 
     waydroid.enable = true;
+    waydroid.package = pkgs.waydroid-nftables;
 
     spiceUSBRedirection.enable = true; # Connect USB devices to libvirt VMs, both local and remote.
 
