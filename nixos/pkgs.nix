@@ -11,7 +11,7 @@
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
     upower.enable = true;
-    happ.enable = true;
+    happ.enable = false;
   };
 
   systemd.services.lactd.enable = true;
@@ -79,7 +79,7 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.noctaliav4.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.helium.packages.${system}.default
-    clash-verge-rev
+    inputs.pano-scrobbler-flake.packages.${system}.default
     flameshot
     qbittorrent-enhanced
     bitwarden-desktop
@@ -100,7 +100,6 @@
     qdiskinfo # Disk info
     # kdiskmark
     waypaper # Wallpaper
-    zoom-us # Video conferencing
     gnome-calculator # Calculator
     gpu-screen-recorder-gtk # Fast record video
     bazaar # Check Flatpaks
@@ -112,6 +111,7 @@
     darktable
     turntable
     samira
+    imgbrd-grabber
 
     kdePackages.okular
     kdePackages.kdenlive # Видеоредактор
@@ -126,7 +126,6 @@
     kdePackages.kate
     kdiff3 # File/directory comparison tool
     kdePackages.qt6ct
-    libsForQt5.qt5ct
     catppuccin-kde
     catppuccin-kvantum
     kdePackages.qtstyleplugin-kvantum
@@ -219,7 +218,6 @@
 
     kdePackages.kimageformats # Image format plugins for Qt 6
     kdePackages.qtimageformats # Plugins for additional image formats: TIFF, MNG, TGA, WBMP
-    libsForQt5.qt5.qtimageformats
     kdePackages.qtsvg # SVG support
     kdePackages.karchive # Plugin for Krita and OpenRaster images
     webp-pixbuf-loader # .webp support (what's this?)
@@ -292,6 +290,8 @@
     go
     python313
     glib
+    nixd
+    nil
 
     protols # LSP
     protobuf
@@ -317,5 +317,6 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-gtk3-1.1.12"
+    "electron-39.8.10"
   ];
 }

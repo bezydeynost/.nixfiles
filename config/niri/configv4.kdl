@@ -12,7 +12,6 @@
  spawn-at-startup                       "zen-beta"
  spawn-at-startup                       "Telegram"
  spawn-at-startup                       "discord"
- spawn-at-startup                       "steam"
 
  config-notification {
      disable-failed
@@ -25,40 +24,40 @@
      Mod+Shift+Slash		        { show-hotkey-overlay; }
      Mod+E		        	hotkey-overlay-title="File Manager: Dolphin" { spawn "dolphin"; }
      Mod+W		        	hotkey-overlay-title="File Manager: Yazi" { spawn "foot" "-e" "yazi"; }
-     Mod+Shift+Home		        hotkey-overlay-title="Hide/Show Bar" { spawn-sh "noctalia msg bar-toggle"; }     
-     //Mod+Shift+Insert		        hotkey-overlay-title="LockScreen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }     
+     Mod+Shift+Home		        hotkey-overlay-title="Hide/Show Bar" { spawn-sh "noctalia-shell ipc call bar toggle"; }     
+     Mod+Shift+Insert		        hotkey-overlay-title="LockScreen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }     
 
 
      // === Application Launchers ===
      Mod+Return			        hotkey-overlay-title="Open Foot" { spawn "foot"; }
      Mod+T			        hotkey-overlay-title="Open Foot" { spawn "foot"; }
      Mod+Shift+Return		        hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
-     Mod+D			        hotkey-overlay-title="Application Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }     
-     Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }     
-     Mod+Comma	       	        	hotkey-overlay-title="Settings" { spawn-sh "noctalia msg settings-toggle"; }   
-     //Mod+N		        	hotkey-overlay-title="Notifications History" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }         
-     //Mod+M			        hotkey-overlay-title="Task Manager" { spawn-sh "noctalia-shell ipc call systemMonitor toggle"; }    
-     Mod+z                              { spawn-sh "noctalia msg panel-toggle control-center"; }
+     Mod+D			        hotkey-overlay-title="Application Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }     
+     Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }     
+     Mod+Comma	       	        	hotkey-overlay-title="Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }   
+     Mod+N		        	hotkey-overlay-title="Notifications History" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }         
+     Mod+M			        hotkey-overlay-title="Task Manager" { spawn-sh "noctalia-shell ipc call systemMonitor toggle"; }    
+     Mod+Z                              { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
 
      // === Other Apps ===
-     Mod+Ctrl+P			        { spawn-sh "noctalia msg panel-toggle wallpaper"; }
-     Mod+Shift+Z                              { spawn "wooz" "--mouse-track" "--invert-scroll"; }
+     Mod+Ctrl+P			        { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
+     Mod+Shift+Z                        { spawn "wooz" "--mouse-track" "--invert-scroll"; }
 
      // === Security ===
      Mod+Ctrl+Delete		        { quit; }
-     Mod+Shift+Delete		        { spawn-sh "noctalia msg panel-toggle session"; }
+     Mod+Shift+Delete		        { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 
      // === Audio Controls ===
-     XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
-     XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }     
-     XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }     
-     XF86AudioPlay allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
-     XF86AudioNext allow-when-locked=true { spawn-sh "noctalia msg media next"; }     
-     XF86AudioPrev allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+     XF86AudioRaiseVolume { spawn-sh "noctalia-shell ipc call volume increase"; }
+     XF86AudioLowerVolume { spawn-sh "noctalia-shell ipc call volume decrease"; }     
+     XF86AudioMute { spawn-sh "noctalia-shell ipc call volume muteOutput"; }     
+     XF86AudioPlay allow-when-locked=true { spawn-sh "noctalia-shell ipc call media playPause"; }
+     XF86AudioNext allow-when-locked=true { spawn-sh "noctalia-shell ipc call media next"; }     
+     XF86AudioPrev allow-when-locked=true { spawn-sh "noctalia-shell ipc call media previous"; }
 
      // === Brightness Controls ===
-     XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }     
-     XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; } 
+     XF86MonBrightnessUp { spawn-sh "noctalia-shell ipc call brightness increase"; }     
+     XF86MonBrightnessDown { spawn-sh "noctalia-shell ipc call brightness decrease"; } 
 
      // === Window Management ===
      Mod+Shift+Q			repeat=false { close-window; }
@@ -227,9 +226,9 @@
  mouse {
  	accel-speed -0.4
  	accel-profile "flat"
- 	scroll-method "on-button-down"
+        // scroll-method "on-button-down"
  	scroll-button 276
- 	scroll-factor 2.5
+ 	scroll-factor 1.5
  }
  touchpad {
  	off
@@ -396,7 +395,7 @@
 
  window-rule {
  	match app-id="com.github.th_ch.youtube_music"
- 	match app-id="spotify"
+ 	match app-id="Spotify"
     match app-id="tauonmb"
     open-maximized true
  	open-on-workspace "music"
@@ -426,8 +425,18 @@
  	open-floating true
  }
 
- window-rule {
+  window-rule {
    match app-id=r#"org.quickshell$"#
+
+   open-floating true
+ }
+
+ window-rule {
+   match app-id="zoom" title=r#"^annotate_toolbar$"#
+   default-floating-position x=10 y=40 relative-to="bottom-left"
+   default-column-width { fixed 100; }
+   default-window-height { fixed 100; }
+
    open-floating true
  }
 
@@ -441,7 +450,7 @@
  layer-rule {
  	match namespace="awww-daemon"
  	match namespace="^quickshell$"
-         match namespace="^noctalia-wallpaper*"
+        match namespace="^noctalia-wallpaper*"
  	place-within-backdrop true
  }
 

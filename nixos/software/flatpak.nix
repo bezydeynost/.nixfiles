@@ -10,6 +10,7 @@
     };
     packages = [
       "org.freedownloadmanager.Manager"
+      "us.zoom.Zoom"
     ];
   };
 }

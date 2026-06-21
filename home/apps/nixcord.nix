@@ -14,7 +14,7 @@
     config = {
       autoUpdate = true;
       plugins = {
-        ClearURLs.enable = true;
+        clearUrls.enable = true;
         callTimer.enable = true;
         betterUploadButton.enable = true;
         gameActivityToggle.enable = true;
@@ -33,8 +33,8 @@
         whoReacted.enable = true;
         noBlockedMessages.enable = true;
         youtubeAdblock.enable = true;
-        FullVCPFP.enable = true;
-        SaveFavoriteGIFs.enable = true;
+        fullVcpfp.enable = true;
+        saveFavoriteGifs.enable = true;
         silentTyping.enable = true;
         spotifyActivityToggle.enable = true;
         spotifyCrack.enable = true;

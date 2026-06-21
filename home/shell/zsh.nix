@@ -54,14 +54,10 @@
 
     history = {
       size = 10000;
-      path = "$HOME/.zsh_history";
+      path = "${config.home.homeDirectory}/.zsh_history";
       ignoreAllDups = true;
       ignoreSpace = true;
     };
-
-    initExtra = ''
-      source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
-    '';
 
     initContent = builtins.readFile ./zsh-init.sh;
 

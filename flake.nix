@@ -54,12 +54,12 @@
     };
 
     noctaliav4 = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/v5";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -70,6 +70,11 @@
 
     tg-ws-proxy = {
       url = "github:pialtor/tg-ws-proxy-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pano-scrobbler-flake = {
+      url = "github:kawaiiDango/pano-scrobbler-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -95,7 +100,6 @@
     ...
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
         ./nixos/configuration.nix
