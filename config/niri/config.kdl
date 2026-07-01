@@ -34,7 +34,7 @@
      Mod+D			        hotkey-overlay-title="Application Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }     
      Mod+V		        	hotkey-overlay-title="Clipboard Manager" repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }     
      Mod+Comma	       	        	hotkey-overlay-title="Settings" { spawn-sh "noctalia msg settings-toggle"; }   
-     Mod+z                              { spawn-sh "noctalia msg panel-toggle control-center"; }
+     Mod+Z                              { spawn-sh "noctalia msg panel-toggle control-center"; }
 
      // === Other Apps ===
      Mod+Ctrl+P			        { spawn-sh "noctalia msg panel-toggle wallpaper"; }

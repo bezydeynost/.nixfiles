@@ -1,0 +1,340 @@
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-serif
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    noto-fonts-monochrome-emoji
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.noto
+    nerd-fonts.symbols-only
+    nerd-fonts.caskaydia-mono
+    carlito
+    terminus_font
+    inconsolata
+    font-awesome
+    liberation_ttf
+    dejavu_fonts
+    unifont
+    unifont_upper
+    times-newer-roman
+    google-fonts
+  ];
+
+  services = {
+    gvfs.enable = true;
+    flatpak.enable = true;
+    xserver.enable = true;
+    printing.enable = true;
+    udisks2.enable = true;
+    power-profiles-daemon.enable = true;
+    upower.enable = true;
+  };
+
+  systemd.services.lactd.enable = true;
+
+  programs = {
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc
+        glib
+        gtk3
+        cairo
+        gdk-pixbuf
+        pango
+        atk
+        at-spi2-atk
+        harfbuzz
+        libpng
+        expat
+        libX11
+        libXrandr
+        libxcb
+        zstd
+
+        webkitgtk_4_1
+        libsoup_3
+        cairo
+        gdk-pixbuf
+        pango
+        atk
+        at-spi2-atk
+        harfbuzz
+        icu
+        nspr
+        nss
+      ];
+    };
+
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs:
+          with pkgs; [
+            libpng
+            libpng12
+            libepoxy
+            pcre2
+            double-conversion
+            webkitgtk_4_1
+            libsoup_3
+            zstd
+          ];
+      };
+    };
+
+    obs-studio.enableVirtualCamera = true;
+
+    niri.enable = true;
+    niri.useNautilus = false;
+    kdeconnect.enable = true;
+    zsh.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.helium.packages.${system}.default
+    flameshot
+    qbittorrent-enhanced
+    bitwarden-desktop
+    throne
+    gnome-disk-utility
+    pavucontrol # PulseAudio Volume Control
+    brightnessctl # Brightness control for laptop
+    crosspipe # Прокидка звука в другие источники pipewire
+    gparted # Форматирование дисков
+    localsend # Кидать файлы
+    pear-desktop
+    spotify
+    nicotine-plus # P2P music
+    micro # Terminal text editor
+    parabolic # Frontend yt-dlp
+    qdiskinfo # Disk info
+    # kdiskmark
+    waypaper # Wallpaper
+    gnome-calculator # Calculator
+    gpu-screen-recorder-gtk # Fast record video
+    bazaar # Check Flatpaks
+    collector #
+    telegram-desktop
+    ayugram-desktop
+    element-desktop
+    distrobox
+    darktable
+    turntable
+    samira
+    imgbrd-grabber
+
+    kdePackages.okular
+    kdePackages.kdenlive # Видеоредактор
+    kdePackages.discover # Optional: Software center for Flatpaks/firmware updates
+    kdePackages.kcalc # Calculator
+    kdePackages.kcharselect # Character map
+    kdePackages.kcolorchooser # Color picker
+    kdePackages.ksystemlog # System log viewer
+    kdePackages.sddm-kcm # SDDM configuration module
+    kdePackages.dolphin
+    kdePackages.kservice
+    kdePackages.kate
+    kdiff3 # File/directory comparison tool
+    kdePackages.qt6ct
+    catppuccin-kde
+    catppuccin-kvantum
+    kdePackages.qtstyleplugin-kvantum
+    haruna
+
+    openssl
+    wget
+    curl
+    git
+    gh
+    yt-dlp # Скачивать и смотреть медиа с разных сайтов
+    wl-clipboard
+    cliphist
+    trash-cli
+    android-tools # ADB
+    adb-sync
+    v4l-utils
+    ntfs3g # Для NTFSprograms.zsh.enable = true; разделов
+    ffmpeg_7 # Обработка видео. Нужен всегда и везде как зависимость
+    svt-av1 # Кодек для рендера в av1 на проце
+    imagemagick # Обработка изображений. Мб тоже нужен всегда
+    vips # В 4 раза быстрее imagemagick?
+    tree # Структура файлов в терминале
+    gnugrep # Поиск в терминале
+    rsync # Синхронизация файлов
+    bat # Аналог cat с подсветкой синтаксиса
+    xrandr # Управление мониторами
+    xdg-utils # Set of command line tools that assist applications with a variety of desktop integration tasks
+    playerctl # Управление медиа. Плей/пауза и тд
+    mediainfo # Info fow FLAC
+    amdgpu_top # Tool to display AMD GPU usage
+    btop-rocm # Монитор ресурсов в терминале
+    nvtopPackages.amd
+    icoextract
+    rocmPackages.rocm-smi # Чтоб в btop было gpu
+    rocmPackages.rocblas # Для работы hip?
+    rocmPackages.hipblas # Для работы hip?
+    rocmPackages.clr # Для работы hip?
+    rocmPackages.rocm-core
+    rocmPackages.rocminfo
+    timer # A "sleep" with progress. Таймер на пельмени "timer 5m"
+    fzf # Нечёткий поиск
+    killall # Убить процессы. Мем, что в стоке не стоит
+    libnotify # Вызов оповещений через "notify-send"
+    gallery-dl # Качать много картинок с кучи разных сайтов
+    ddcutil # Прикол для управление яркости моего моника
+    ddcutil-service # Прикол для управление яркости моего моника
+    lm_sensors # Сенсоры
+    grim
+    slurp
+    miller # Like awk, sed, cut, join, and sort for data formats such as CSV, TSV, JSON, JSON Lines, and positionally-indexed
+    usbutils # lsusb
+    f2fs-tools # f2fs filesystem
+    exfat # exFAT filesystem
+    xwayland-satellite # Для нири
+    xwayland # Для нири
+    udiskie #
+    duf # Место
+    eza # Replace for ls
+    ncdu # Disk usage analyzer
+    man # Documentation
+    tldr # Documentation
+    wev # Event viewer
+    ripdrag # Drag and drop
+    gpu-screen-recorder #
+    microfetch # I use nixos btw
+    fastfetch
+    nix-melt
+    nur.repos.zerozawa.mikusays
+    xhost
+    scrcpy
+    quickshell
+    awww # Wallpaper
+    opus-tools
+    music-discord-rpc
+    chafa
+    wooz
+    mpvpaper
+
+    libreoffice-fresh # Редактировать документы
+    onlyoffice-desktopeditors
+    hunspell # Проверка орфографии для libreoffice
+    hunspellDicts.ru_RU # Словарь для проверки орфографии
+    hunspellDicts.en_US # Словарь для проверки орфографии
+    hunspellDicts.uk_UA # EСловарь для проверки орфографии
+
+    nautilus # File manager
+    yazi # Terminal File manager
+    ffmpegthumbnailer # A lightweight video thumbnailer
+
+    kdePackages.kimageformats # Image format plugins for Qt 6
+    kdePackages.qtimageformats # Plugins for additional image formats: TIFF, MNG, TGA, WBMP
+    kdePackages.qtsvg # SVG support
+    kdePackages.karchive # Plugin for Krita and OpenRaster images
+    webp-pixbuf-loader # .webp support (what's this?)
+    gdk-pixbuf.dev # Library for image loading and manipulation
+    libwebp # .webp support
+    libavif # AVIF format support
+    libheif # HEIF format support
+    libgsf # .odf support
+    libjxl # JPEG-XL format support
+    libraw # RAW format support
+    librsvg # Small library to render SVG images to Cairo surfaces
+    jxrlib # JPEG XR image support
+    poppler # PDF support
+    freetype # Font rendering engine
+    imath # EXR format support
+    openexr # High dynamic-range (HDR) image file format
+
+    tauon # Музыкальный плееер
+    rhythmbox # Музыкальный плееер
+    picard # Массовый редактор метаданных музыки
+    mousai # Опенсорс шазам. Со временем просит платный api
+    mpv # Смотреть видео
+    # imv # Смотреть картинки
+    feh # Нужен в большом количестве софта как зависимость. Может в avif, но криво
+    loupe
+
+    krita # Рисовать
+    gimp
+    # blender-hip # 3д графика и рендер видео
+
+    obsidian # Заметки
+
+    neovim
+    vim
+    zed-editor
+
+    adwaita-icon-theme
+    adwaita-qt
+    adwaita-qt6
+    papirus-icon-theme
+    material-icons
+
+    glslang
+    spirv-cross
+    spirv-headers
+    spirv-tools
+    vulkan-extension-layer
+    vulkan-headers
+    vulkan-loader
+    vulkan-tools
+    vulkan-tools-lunarg
+    vulkan-utility-libraries
+    vulkan-validation-layers
+    vkdisplayinfo
+    vk-bootstrap
+    dxvk # Чтоб wine игры запускались через vulkan, а не opengl (Direct3D 8/9/10/11)
+    vkd3d # Чтоб wine игры запускались через vulkan, а не opengl (Direct3D 12)
+    vkd3d-proton
+    # vkbasalt # Баф Vulkan для улучшения визуальной графики игр https://github.com/DadSchoorse/vkBasalt
+
+    fontconfig
+    zlib
+    libva-utils # Проверяет работоспособность VAAPI?
+    clinfo # Проверяет работоспособность OpenCL?
+    pamixer # PulseAudio cli (громкость редачу)
+    droidcam
+
+    cargo
+    cmake
+    go
+    python313
+    glib
+    nixd
+    nil
+
+    protols # LSP
+    protobuf
+    protoc-gen-go
+    protoc-gen-go-grpc
+
+    v2ray # VPN
+    xray # VPN
+    sing-box # VPN
+    lmstudio # Local AP
+    ventoy-full-gtk
+
+    zip # Архивировать
+    file-roller # Архиватор от gnome
+    unzip # Разархивировать
+    unrar # Разархивировать
+    gnutar # Для .tar?
+    p7zip # Это пакет для 7z?
+    bzip2 # .bz2 архивы
+    unar #
+    peazip #
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-gtk3-1.1.12"
+    "electron-39.8.10"
+  ];
+}

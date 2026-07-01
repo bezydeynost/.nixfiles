@@ -1,4 +1,4 @@
-# My dotfiles for NixOS/Home-Manager
+# My dotfiles for NixOS for Intel i5 12400F + RX 6600
 
 | env      | attribute  |
 | -------- | ---------- |

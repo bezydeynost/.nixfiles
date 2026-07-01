@@ -1,13 +1,16 @@
 {
-  description = "myflake";
+  description = "Bezflake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     helium = {
       url = "github:bezydeynost/helium";
@@ -39,7 +42,7 @@
     };
 
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -92,32 +95,45 @@
     };
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     home-manager,
     nur,
     ...
-  }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./nixos/configuration.nix
-        nur.modules.nixos.default
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "backup";
-            extraSpecialArgs = {inherit inputs;};
-            users.bezydeynost = import ./home/home.nix;
-            sharedModules = [
-              nur.modules.homeManager.default
-            ];
-          };
-        }
-      ];
+  } @ inputs: let
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    overlays = import ./overlays {inherit inputs;};
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./nixos/configuration.nix
+          nur.modules.nixos.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = {inherit inputs;};
+              users.bezydeynost = import ./home-manager/home.nix;
+              sharedModules = [
+                nur.modules.homeManager.default
+              ];
+            };
+          }
+        ];
+      };
     };
   };
 }
