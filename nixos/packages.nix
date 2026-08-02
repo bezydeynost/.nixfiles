@@ -99,6 +99,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     flameshot
     qbittorrent-enhanced
     bitwarden-desktop

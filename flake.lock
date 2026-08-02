@@ -438,6 +438,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785707827,
+        "narHash": "sha256-H70rICsCS/cx4KR1Qryln9HJd0iVekP+8or3OCKvPT0=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "5aae077a3563da6fda3fc2a2b8ce9162e3a42019",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -536,11 +556,13 @@
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
+        "noctalia": "noctalia",
         "nur": "nur",
         "nvf": "nvf",
         "proxy-suite": "proxy-suite",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
+        "zapret-discord-youtube": "zapret-discord-youtube",
         "zen-browser": "zen-browser"
       }
     },
@@ -747,6 +769,27 @@
         "url": "https://archive.org/download/zapret-tgws-nix-2026-07-10/zapret-discord-youtube.tar.gz"
       }
     },
+    "zapret-discord-youtube": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "zapret-flowseal": "zapret-flowseal_2"
+      },
+      "locked": {
+        "lastModified": 1784758289,
+        "narHash": "sha256-gUwiD33Dn5Q4Fi3RwbRmJJ7wiRw19rvyFJBBnhHWMQc=",
+        "owner": "kartavkun",
+        "repo": "zapret-discord-youtube",
+        "rev": "a7d7f1dd3765937b051d1289fba3fde2a6c8c7c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kartavkun",
+        "repo": "zapret-discord-youtube",
+        "type": "github"
+      }
+    },
     "zapret-flowseal": {
       "flake": false,
       "locked": {
@@ -758,6 +801,22 @@
       "original": {
         "type": "tarball",
         "url": "https://archive.org/download/zapret-tgws-nix-2026-07-10/zapret-flowseal.tar.gz"
+      }
+    },
+    "zapret-flowseal_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784697388,
+        "narHash": "sha256-Lf7oloMkMziQRzyE/nw16J1/hAxSuRG5ioZb7UbLRUo=",
+        "owner": "Flowseal",
+        "repo": "zapret-discord-youtube",
+        "rev": "9503dc045133000af8075e066f09bb469008e530",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Flowseal",
+        "repo": "zapret-discord-youtube",
+        "type": "github"
       }
     },
     "zen-browser": {

@@ -39,6 +39,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +56,11 @@
 
     proxy-suite = {
       url = "github:FUFSoB/proxy-suite-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zapret-discord-youtube = {
+      url = "github:kartavkun/zapret-discord-youtube";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -15,11 +15,5 @@
       secretFile = config.age.secrets."nixos/secrets/tg-ws-proxy".path;
       fakeTlsDomain = "4pda.to";
     };
-
-    zapret = {
-      enable = true;
-      configName = "general(ALT9)";
-      gameFilter = "all";
-    };
   };
 }

@@ -2,7 +2,7 @@
 
 | env      | attribute  |
 | -------- | ---------- |
-| de       | niri + dms |
+| de       | niri + noctalia |
 | shell    | zsh        |
 | terminal | foot    |
 | editor   | nvf(nvim)  |
