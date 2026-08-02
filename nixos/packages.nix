@@ -103,7 +103,9 @@
     qbittorrent-enhanced
     bitwarden-desktop
     throne
-    gnome-disk-utility
+    dialect
+    mission-center
+    #gnome-disk-utility
     pavucontrol # PulseAudio Volume Control
     brightnessctl # Brightness control for laptop
     crosspipe # Прокидка звука в другие источники pipewire
@@ -114,7 +116,7 @@
     nicotine-plus # P2P music
     micro # Terminal text editor
     parabolic # Frontend yt-dlp
-    qdiskinfo # Disk info
+    #qdiskinfo # Disk info
     # kdiskmark
     waypaper # Wallpaper
     gnome-calculator # Calculator
@@ -158,7 +160,7 @@
     android-tools # ADB
     adb-sync
     v4l-utils
-    ntfs3g # Для NTFSprograms.zsh.enable = true; разделов
+    ntfs3g
     ffmpeg_7 # Обработка видео. Нужен всегда и везде как зависимость
     svt-av1 # Кодек для рендера в av1 на проце
     imagemagick # Обработка изображений. Мб тоже нужен всегда
@@ -212,7 +214,6 @@
     nur.repos.zerozawa.mikusays
     xhost
     scrcpy
-    quickshell
     awww # Wallpaper
     opus-tools
     music-discord-rpc
@@ -227,7 +228,7 @@
     hunspellDicts.en_US # Словарь для проверки орфографии
     hunspellDicts.uk_UA # EСловарь для проверки орфографии
 
-    nautilus # File manager
+    #nautilus # File manager
     yazi # Terminal File manager
     ffmpegthumbnailer # A lightweight video thumbnailer
 
