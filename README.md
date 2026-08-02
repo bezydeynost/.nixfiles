@@ -2,9 +2,9 @@
 
 | env      | attribute  |
 | -------- | ---------- |
-| de       | niri + noctalia |
+| de       | niri + dms |
 | shell    | zsh        |
-| terminal | ghostty    |
+| terminal | foot    |
 | editor   | nvf(nvim)  |
 
 and others...
