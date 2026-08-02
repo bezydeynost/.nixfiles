@@ -9,5 +9,6 @@
     ./starship.nix
     ./zoxide.nix
     ./zsh.nix
+    ./ssh.nix
   ];
 }

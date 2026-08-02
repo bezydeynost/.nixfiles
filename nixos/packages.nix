@@ -98,8 +98,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.helium.packages.${system}.default
+    inputs.agenix.packages.${pkgs.system}.default
     flameshot
     qbittorrent-enhanced
     bitwarden-desktop
@@ -124,8 +123,6 @@
     collector #
     telegram-desktop
     ayugram-desktop
-    element-desktop
-    distrobox
     darktable
     turntable
     samira
@@ -270,7 +267,6 @@
 
     neovim
     vim
-    zed-editor
 
     adwaita-icon-theme
     adwaita-qt
@@ -310,6 +306,7 @@
     glib
     nixd
     nil
+    nodejs
 
     protols # LSP
     protobuf

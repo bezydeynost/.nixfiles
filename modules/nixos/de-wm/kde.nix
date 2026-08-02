@@ -2,8 +2,8 @@
   services = {
     desktopManager.plasma6.enable = true;
     displayManager.defaultSession = "plasma"; # KDE Plasma in Wayland
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
+    #displayManager.sddm.enable = true;
+    #displayManager.sddm.wayland.enable = true;
   };
 
   environment.plasma6.excludePackages = with pkgs; [

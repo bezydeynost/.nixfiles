@@ -31,14 +31,14 @@
       # Garbage collector. Удалить все не используемые пакеты (например после обновы)
       grb = "sudo nix-collect-garbage -d";
 
-      pkgs = "v ${flakeDir}/nixos/pkgs.nix";
+      pkgs = "v ${flakeDir}/nixos/packages.nix";
       v = "nvim";
       rm = "rm -i";
-      ls = "eza --icons";
-      ll = "eza -l --icons";
-      la = "eza -la --icons";
-      lt = "eza --tree --icons";
-      llt = "eza -l --tree --icons";
+      ls = "eza --icons=auto";
+      ll = "eza -l --icons=auto";
+      la = "eza -la --icons=auto";
+      lt = "eza --tree --icons=auto";
+      llt = "eza -l --tree --icons=auto";
       y = "yazi";
       b = "btop";
       cat = "bat";

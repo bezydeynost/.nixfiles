@@ -6,5 +6,6 @@
     ./networking.nix
     ./sudo-rs.nix
     ./xdg.nix
+    ./proxy-suite.nix
   ];
 }

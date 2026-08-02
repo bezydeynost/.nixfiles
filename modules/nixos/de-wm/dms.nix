@@ -1,26 +1,22 @@
-{inputs, ...}: {
-  imports = [
-    inputs.dms.nixosModules.dank-material-shell
-  ];
-
-  programs.dank-material-shell = {
+{
+  programs.dms-shell = {
     enable = true;
 
     systemd = {
-      enable = false;
+      enable = true;
       restartIfChanged = true;
     };
 
     enableSystemMonitoring = true;
-    enableVPN = false;
+    enableVPN = true;
     enableDynamicTheming = true;
     enableAudioWavelength = true;
-    enableCalendarEvents = false;
+    enableCalendarEvents = true;
     enableClipboardPaste = true;
   };
 
-  #services.displayManager.dms-greeter = {
-  #  enable = true;
-  #  compositor.name = "niri";
-  #};
+  services.displayManager.dms-greeter = {
+    enable = true;
+    compositor.name = "niri";
+  };
 }

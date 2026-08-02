@@ -2,13 +2,13 @@
   inputs,
   pkgs,
   ...
-}: let
-  username = "bezydeynost";
-in {
+}: {
   imports = [
     ./hardware-configuration.nix
     ../modules/nixos/default.nix
     ./packages.nix
+    ./age.nix
+    ./users.nix
   ];
 
   nix = {
@@ -55,15 +55,6 @@ in {
     enable = true;
   };
 
-  users = {
-    defaultUserShell = pkgs.zsh;
-    users.${username} = {
-      isNormalUser = true;
-      description = username;
-      extraGroups = ["networkmanager" "wheel" "input" "libvirtd" "storage" "docker" "video" "i2c" "adbusers" "plugdev"];
-    };
-  };
-
   fonts.fontconfig = {
     enable = true;
     antialias = true;
@@ -76,17 +67,13 @@ in {
     };
   };
 
-  services.scx = {
+  services.scx-loader = {
     enable = true;
-    package = pkgs.scx.rustscheds;
-    scheduler = "scx_cosmos";
-    ## Gaming mode for scx_cosmos
-    extraArgs = [
-      "-c"
-      "0"
-      "-p"
-      "0"
-    ];
+    schedsPackages = [pkgs.scx.rustscheds];
+    config = {
+      default_sched = "scx_bpfland";
+      default_mode = "Auto";
+    };
   };
 
   zramSwap = {

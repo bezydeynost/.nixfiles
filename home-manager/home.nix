@@ -26,9 +26,4 @@
       options = "--delete-older-than 30d";
     };
   };
-
-  xdg.configFile = {
-    "niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/niri";
-    "fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/fastfetch";
-  };
 }

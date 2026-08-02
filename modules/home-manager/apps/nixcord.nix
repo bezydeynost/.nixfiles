@@ -19,6 +19,7 @@
         betterUploadButton.enable = true;
         gameActivityToggle.enable = true;
         gitHubRepos.enable = true;
+        gifMaker.enable = true;
         messageLoggerEnhanced.enable = true;
         noF1.enable = true;
         favoriteEmojiFirst.enable = true;
@@ -37,7 +38,6 @@
         fullVcpfp.enable = true;
         saveFavoriteGifs.enable = true;
         silentTyping.enable = true;
-        spotifyActivityToggle.enable = true;
         spotifyCrack.enable = true;
         petpet.enable = true;
         fakeNitro.enable = true;

@@ -10,10 +10,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    helium = {
-      url = "github:bezydeynost/helium";
+    millennium = {
+      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -24,16 +27,6 @@
 
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
-    };
-
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dms-plugin-registry = {
-      url = "github:AvengeMedia/dms-plugin-registry";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixcord = {
@@ -56,33 +49,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctaliav4 = {
-      url = "github:noctalia-dev/noctalia/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    tg-ws-proxy = {
-      url = "github:pialtor/tg-ws-proxy-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    pano-scrobbler-flake = {
-      url = "github:kawaiiDango/pano-scrobbler-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zapret-discord-youtube = {
-      url = "github:kartavkun/zapret-discord-youtube";
+    proxy-suite = {
+      url = "github:FUFSoB/proxy-suite-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
