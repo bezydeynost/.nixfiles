@@ -229,7 +229,7 @@
     hunspellDicts.en_US # Словарь для проверки орфографии
     hunspellDicts.uk_UA # EСловарь для проверки орфографии
 
-    #nautilus # File manager
+    nautilus # File manager
     yazi # Terminal File manager
     ffmpegthumbnailer # A lightweight video thumbnailer
 

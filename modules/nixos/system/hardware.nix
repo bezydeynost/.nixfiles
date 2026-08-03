@@ -18,10 +18,6 @@
     };
   };
 
-  environment.variables = {
-    AMD_VULKAN_ICD = "RADV";
-  };
-
   systemd.packages = with pkgs; [lact];
   systemd.services.lactd.wantedBy = ["multi-user.target"];
 
@@ -63,11 +59,6 @@
       device = "/dev/disk/by-uuid/2f934d2b-ad39-46c8-a4ce-ea6a6b6e1912";
       fsType = "ext4";
       options = ["defaults" "noatime" "nosuid" "nodev" "nofail" "x-gvfs-show" "noauto" "x-systemd.automount"];
-    };
-    "/mnt/SSD" = {
-      device = "/dev/disk/by-uuid/01e03ae2-649d-4d50-8f4f-aef0abda8575";
-      fsType = "ext4";
-      options = ["defaults" "noatime" "nosuid" "nodev" "nofail" "x-gvfs-show"];
     };
   };
 }
