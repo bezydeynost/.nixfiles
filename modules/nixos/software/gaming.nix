@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  nixpkgs.overlays = [inputs.millennium.overlays.default];
   programs = {
     steam = {
       enable = true;
@@ -6,19 +11,8 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
-      package = pkgs.millennium-steam.override {
-        extraProfile = ''
-          export PROTON_ENABLE_WAYLAND=1
-        '';
-      };
-    };
-    gamemode = {
-      enable = true;
-      enableRenice = true;
-      settings.general = {
-        desiredgov = "performance";
-        renice = 10;
-      };
+      fontPackages = with pkgs; [liberation_ttf];
+      package = pkgs.millennium-steam;
     };
     gamescope.enable = true;
   };

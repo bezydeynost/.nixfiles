@@ -35,8 +35,6 @@
     TERMINAL = "foot";
   };
 
-  environment.pathsToLink = ["/share/zsh"];
-
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [

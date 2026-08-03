@@ -8,7 +8,7 @@
     ./ripgrep.nix
     ./starship.nix
     ./zoxide.nix
-    ./zsh.nix
+    ./fish.nix
     ./ssh.nix
   ];
 }

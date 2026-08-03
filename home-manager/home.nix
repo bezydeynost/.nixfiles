@@ -10,6 +10,7 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
+    shell.enableFishIntegration = true;
   };
 
   programs.home-manager.enable = true;

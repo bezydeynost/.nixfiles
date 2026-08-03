@@ -7,6 +7,16 @@
     enable = true;
     enableCompletion = true;
     autocd = true;
+
+    completionInit = ''
+      autoload -U compinit
+      if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+        compinit -d ~/.zcompdump
+      else
+        compinit -C -d ~/.zcompdump
+      fi
+    '';
+
     autosuggestion = {
       enable = true;
       strategy = [
@@ -46,7 +56,7 @@
       f = "fastfetch";
       py = "python";
       find = "fd";
-      grep = "rg";
+      grep = "rg -e";
       niriconf = "nvim ${flakeDir}/config/niri/config.kdl";
       flake = "nvim ${flakeDir}/flake.nix";
     };
@@ -57,8 +67,6 @@
       ignoreAllDups = true;
       ignoreSpace = true;
     };
-
-    initContent = builtins.readFile ./zsh-init.sh;
 
     historySubstringSearch = {
       enable = true;
@@ -77,20 +85,12 @@
       enable = true;
       plugins = [
         "git"
-        "npm"
         "history"
-        "rust"
-        "golang"
-        "foot"
-        "gh"
-        "aliases" # "als" в терминале покажет все алиасы (нет). Можно добавить слово для фильтрации
         "colored-man-pages" # Adds colors to man pages
-        "command-not-found" # Скажет какой пакет скачать, если команда не найдена
         "copypath" # В терминале "copypath" скопирует нынешний абсолютный путь. Можно "copypath файл или дироктория"
         "dirhistory" # Лютая имба https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
         "extract" # В терминале "extract filename" чтоб разархивировать файл. Одна команда на все архивы
         "safe-paste" # Preventing any code from running while pasting, so you have a chance to review what was pasted
-        "ssh-agent" # Автостарт ssh-agent. Хз надо ли настраивать и если да, то как
         "universalarchive" # Run "ua <format> <files>"" to compress <files> into an archive file using <format>
       ];
     };

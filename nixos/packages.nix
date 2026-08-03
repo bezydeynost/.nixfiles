@@ -106,7 +106,7 @@
     throne
     dialect
     mission-center
-    #gnome-disk-utility
+    gnome-disk-utility
     pavucontrol # PulseAudio Volume Control
     brightnessctl # Brightness control for laptop
     crosspipe # Прокидка звука в другие источники pipewire
@@ -117,8 +117,8 @@
     nicotine-plus # P2P music
     micro # Terminal text editor
     parabolic # Frontend yt-dlp
-    #qdiskinfo # Disk info
-    # kdiskmark
+    qdiskinfo # Disk info
+    kdiskmark
     waypaper # Wallpaper
     gnome-calculator # Calculator
     gpu-screen-recorder-gtk # Fast record video
