@@ -26,6 +26,7 @@
     kernelParams = [
       "quiet"
       "splash"
+      "amdgpu.ppfeaturemask=0xffffffff"
     ];
     kernelModules = [
       "v4l2loopback"

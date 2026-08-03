@@ -18,8 +18,16 @@
     };
   };
 
+  powerManagement.cpuFreqGovernor = "performance";
+
   systemd.packages = with pkgs; [lact];
-  systemd.services.lactd.wantedBy = ["multi-user.target"];
+  systemd.services.lact = {
+    description = "LACT daemon";
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     qmk

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  nixpkgs.overlays = [inputs.millennium.overlays.default];
+{pkgs, ...}: {
   programs = {
     steam = {
       enable = true;
@@ -12,11 +7,6 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
       fontPackages = with pkgs; [liberation_ttf];
-      package = pkgs.millennium-steam.override {
-        extraProfile = ''
-          export PROTON_ENABLE_WAYLAND=1
-        '';
-      };
     };
     gamemode = {
       enable = true;
