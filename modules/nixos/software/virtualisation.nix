@@ -14,10 +14,10 @@
 
     libvirtd = {
       # https://nixos.wiki/wiki/Libvirt
-      enable = true;
+      enable = false;
     };
   };
 
   # Network autostart - `virsh net-autostart default` в терминале
-  programs.virt-manager.enable = true; # https://nixos.wiki/wiki/Virt-manager
+  programs.virt-manager.enable = false; # https://nixos.wiki/wiki/Virt-manager
 }

@@ -1,30 +1,26 @@
 {
-  inputs,
-  pkgs,
-  ...
-}: {
-  imports = [inputs.zapret-discord-youtube.nixosModules.withTestTools];
-
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
+    nftables.enable = true;
     nameservers = ["1.1.1.1" "1.0.0.1"];
-    firewall = {
-      enable = true;
-      checkReversePath = "loose";
-      trustedInterfaces = ["throne-tun"];
-    };
+    firewall.enable = false;
   };
 
   programs.throne = {
     enable = true;
-    tunMode.enable = true;
+    tunMode = {
+      enable = true;
+      setuid = true;
+    };
   };
 
   services.zapret-discord-youtube = {
     enable = true;
-    configName = "general(ALT9)";
-    gameFilter = "null";
+    interface = "any";
+    strategy = "general_fake_tls_auto_alt.bat";
+    gameFilterTcp = false;
+    gameFilterUdp = false;
   };
 
   systemd.services.zapret-discord-youtube.after = ["network.target"];

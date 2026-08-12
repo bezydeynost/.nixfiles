@@ -42,32 +42,53 @@
       enable = true;
       libraries = with pkgs; [
         stdenv.cc.cc
+        util-linux
         glib
-        gtk3
+        dbus
+        krb5
+        zlib
+        zstd
+        mesa
+        libGL
+        libglvnd
+        freetype
+        fontconfig
         cairo
         gdk-pixbuf
         pango
-        atk
-        at-spi2-atk
         harfbuzz
         libpng
         expat
-        libX11
-        libXrandr
-        libxcb
-        zstd
-
-        webkitgtk_4_1
-        libsoup_3
-        cairo
-        gdk-pixbuf
-        pango
+        gtk3
         atk
         at-spi2-atk
-        harfbuzz
+        webkitgtk_4_1
+        libsoup_3
         icu
         nspr
         nss
+        kdePackages.qtbase
+        kdePackages.qttools
+        kdePackages.qtwayland
+        kdePackages.qtsvg
+        kdePackages.qtimageformats
+        libxkbcommon
+        libX11
+        libXext
+        libXrandr
+        libXrender
+        libXcursor
+        libXxf86vm
+        libXi
+        libXfixes
+        libxcb
+        libxcb-util
+        libxcb-keysyms
+        libxcb-wm
+        libxcb-image
+        libxcb-render-util
+        xcb-util-cursor
+        libxcb-cursor
       ];
     };
 
@@ -94,19 +115,19 @@
     niri.enable = true;
     niri.useNautilus = false;
     kdeconnect.enable = true;
-    zsh.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    flameshot
+    inputs.pano-scrobbler-flake.packages.${system}.default
+    #flameshot
     qbittorrent-enhanced
     bitwarden-desktop
     throne
     dialect
     mission-center
-    gnome-disk-utility
+    #gnome-disk-utility
     pavucontrol # PulseAudio Volume Control
     brightnessctl # Brightness control for laptop
     crosspipe # Прокидка звука в другие источники pipewire
@@ -114,41 +135,24 @@
     localsend # Кидать файлы
     pear-desktop
     spotify
-    nicotine-plus # P2P music
+    #nicotine-plus # P2P music
     micro # Terminal text editor
     parabolic # Frontend yt-dlp
-    qdiskinfo # Disk info
-    kdiskmark
+    #qdiskinfo # Disk info
+    #kdiskmark
     waypaper # Wallpaper
     gnome-calculator # Calculator
     gpu-screen-recorder-gtk # Fast record video
     bazaar # Check Flatpaks
-    collector #
     telegram-desktop
-    ayugram-desktop
     darktable
-    turntable
     samira
     imgbrd-grabber
-
+    polkit_gnome
     kdePackages.okular
     kdePackages.kdenlive # Видеоредактор
-    kdePackages.discover # Optional: Software center for Flatpaks/firmware updates
-    kdePackages.kcalc # Calculator
-    kdePackages.kcharselect # Character map
-    kdePackages.kcolorchooser # Color picker
-    kdePackages.ksystemlog # System log viewer
-    kdePackages.sddm-kcm # SDDM configuration module
     kdePackages.dolphin
-    kdePackages.kservice
-    kdePackages.kate
-    kdiff3 # File/directory comparison tool
-    kdePackages.qt6ct
-    catppuccin-kde
-    catppuccin-kvantum
-    kdePackages.qtstyleplugin-kvantum
     haruna
-
     openssl
     wget
     curl
@@ -215,24 +219,18 @@
     nur.repos.zerozawa.mikusays
     xhost
     scrcpy
-    awww # Wallpaper
     opus-tools
-    music-discord-rpc
     chafa
     wooz
     mpvpaper
-
     libreoffice-fresh # Редактировать документы
     onlyoffice-desktopeditors
     hunspell # Проверка орфографии для libreoffice
     hunspellDicts.ru_RU # Словарь для проверки орфографии
     hunspellDicts.en_US # Словарь для проверки орфографии
     hunspellDicts.uk_UA # EСловарь для проверки орфографии
-
-    nautilus # File manager
     yazi # Terminal File manager
     ffmpegthumbnailer # A lightweight video thumbnailer
-
     kdePackages.kimageformats # Image format plugins for Qt 6
     kdePackages.qtimageformats # Plugins for additional image formats: TIFF, MNG, TGA, WBMP
     kdePackages.qtsvg # SVG support
@@ -251,31 +249,23 @@
     freetype # Font rendering engine
     imath # EXR format support
     openexr # High dynamic-range (HDR) image file format
-
     tauon # Музыкальный плееер
     rhythmbox # Музыкальный плееер
     picard # Массовый редактор метаданных музыки
     mousai # Опенсорс шазам. Со временем просит платный api
     mpv # Смотреть видео
-    # imv # Смотреть картинки
     feh # Нужен в большом количестве софта как зависимость. Может в avif, но криво
     loupe
-
     krita # Рисовать
-    gimp
-    # blender-hip # 3д графика и рендер видео
-
+    #gimp
     obsidian # Заметки
-
     neovim
     vim
-
     adwaita-icon-theme
     adwaita-qt
     adwaita-qt6
     papirus-icon-theme
     material-icons
-
     glslang
     spirv-cross
     spirv-headers
@@ -292,15 +282,12 @@
     dxvk # Чтоб wine игры запускались через vulkan, а не opengl (Direct3D 8/9/10/11)
     vkd3d # Чтоб wine игры запускались через vulkan, а не opengl (Direct3D 12)
     vkd3d-proton
-    # vkbasalt # Баф Vulkan для улучшения визуальной графики игр https://github.com/DadSchoorse/vkBasalt
-
     fontconfig
     zlib
     libva-utils # Проверяет работоспособность VAAPI?
     clinfo # Проверяет работоспособность OpenCL?
     pamixer # PulseAudio cli (громкость редачу)
     droidcam
-
     cargo
     cmake
     go
@@ -309,18 +296,15 @@
     nixd
     nil
     nodejs
-
     protols # LSP
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
-
     v2ray # VPN
     xray # VPN
     sing-box # VPN
     lmstudio # Local AP
-    ventoy-full-gtk
-
+    #ventoy-full-gtk
     zip # Архивировать
     file-roller # Архиватор от gnome
     unzip # Разархивировать

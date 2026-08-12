@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    happ-nixos.url = "git+https://codeberg.org/VOXEL0798/happ.flake.git";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -54,10 +55,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zapret-discord-youtube = {
-      url = "github:kartavkun/zapret-discord-youtube";
+    pano-scrobbler-flake = {
+      url = "github:kawaiiDango/pano-scrobbler-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zapret.url = "git+https://codeberg.org/VOXEL0798/zapret-discord-youtube-nix.flake.git";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -73,6 +76,8 @@
     nixpkgs,
     home-manager,
     nur,
+    happ-nixos,
+    zapret,
     ...
   } @ inputs: let
     systems = [
@@ -91,6 +96,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/configuration.nix
+          zapret.nixosModules.default
           nur.modules.nixos.default
           home-manager.nixosModules.home-manager
           {
@@ -104,6 +110,10 @@
                 nur.modules.homeManager.default
               ];
             };
+          }
+          happ-nixos.nixosModules.default
+          {
+            services.happ.enable = true;
           }
         ];
       };
