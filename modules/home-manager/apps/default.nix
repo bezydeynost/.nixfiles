@@ -5,7 +5,6 @@
     ./obs.nix
     ./spicetify.nix
     ./zen.nix
-    ./floorp.nix
     ./prismlauncher.nix
     ./hx.nix
   ];

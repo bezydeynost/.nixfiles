@@ -61,7 +61,4 @@
       };
     };
   };
-
-  stylix.targets.zen-browser.profileNames = ["bezydeynost"];
-  stylix.targets.zen-browser.enable = true;
 }

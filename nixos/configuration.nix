@@ -61,16 +61,36 @@
     enable = true;
   };
 
-  fonts.fontconfig = {
-    enable = true;
-    antialias = true;
-    hinting = {
+  fonts = {
+    packages = with pkgs; [
+      adwaita-fonts
+      nerd-fonts.jetbrains-mono
+      noto-fonts-color-emoji
+    ];
+
+    fontconfig = {
       enable = true;
-      style = "slight";
+      antialias = true;
+      hinting = {
+        enable = true;
+        style = "slight";
+      };
+      subpixel = {
+        rgba = "rgb";
+      };
+
+      defaultFonts = {
+        sansSerif = ["Adwaita Sans"];
+        serif = ["Adwaita Sans"];
+        monospace = ["JetBrainsMono Nerd Font"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
-    subpixel = {
-      rgba = "rgb";
-    };
+  };
+
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Ice";
+    XCURSOR_SIZE = "24";
   };
 
   services.scx-loader = {

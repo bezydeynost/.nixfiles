@@ -17,10 +17,8 @@
 
   services.zapret-discord-youtube = {
     enable = true;
-    interface = "any";
-    strategy = "general_fake_tls_auto_alt.bat";
-    gameFilterTcp = false;
-    gameFilterUdp = false;
+    configName = "general(ALT9)";
+    gameFilter = "null";
   };
 
   systemd.services.zapret-discord-youtube.after = ["network.target"];

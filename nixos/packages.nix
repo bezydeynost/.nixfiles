@@ -4,6 +4,7 @@
   ...
 }: {
   fonts.packages = with pkgs; [
+    adwaita-fonts
     noto-fonts
     noto-fonts-cjk-serif
     noto-fonts-cjk-sans
@@ -122,6 +123,8 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
     #flameshot
+    bibata-cursors
+    colloid-icon-theme
     qbittorrent-enhanced
     bitwarden-desktop
     throne

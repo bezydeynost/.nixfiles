@@ -60,7 +60,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zapret.url = "git+https://codeberg.org/VOXEL0798/zapret-discord-youtube-nix.flake.git";
+    zapret-discord-youtube = {
+      url = "github:kartavkun/zapret-discord-youtube";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -77,7 +80,7 @@
     home-manager,
     nur,
     happ-nixos,
-    zapret,
+    zapret-discord-youtube,
     ...
   } @ inputs: let
     systems = [
@@ -96,7 +99,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/configuration.nix
-          zapret.nixosModules.default
+          zapret-discord-youtube.nixosModules.withTestTools
           nur.modules.nixos.default
           home-manager.nixosModules.home-manager
           {
