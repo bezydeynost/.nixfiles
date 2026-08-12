@@ -122,6 +122,7 @@
     inputs.agenix.packages.${pkgs.system}.default
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
+    matugen
     #flameshot
     bibata-cursors
     colloid-icon-theme
