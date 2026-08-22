@@ -33,8 +33,6 @@
 
   environment.sessionVariables = {
     TERMINAL = "foot";
-    XCURSOR_THEME = "Bibata-Modern-Ice";
-    XCURSOR_SIZE = "24";
   };
 
   nixpkgs = {

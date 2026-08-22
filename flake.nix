@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
-    happ-nixos.url = "git+https://codeberg.org/VOXEL0798/happ.flake.git";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -79,7 +78,6 @@
     nixpkgs,
     home-manager,
     nur,
-    happ-nixos,
     zapret-discord-youtube,
     ...
   } @ inputs: let
@@ -113,10 +111,6 @@
                 nur.modules.homeManager.default
               ];
             };
-          }
-          happ-nixos.nixosModules.default
-          {
-            services.happ.enable = true;
           }
         ];
       };

@@ -5,7 +5,6 @@
   programs.nixcord = {
     enable = true;
     discord = {
-      branch = "stable";
       equicord.enable = true;
       vencord.enable = false;
       openASAR.enable = false;
@@ -41,12 +40,6 @@
         spotifyCrack.enable = true;
         petpet.enable = true;
         fakeNitro.enable = true;
-        questify = {
-          enable = true;
-          allowChangingDangerousSettings = true;
-          makeMobileVideoQuestsDesktopCompatible = true;
-          resumeInterruptedQuests = true;
-        };
         betterFolders = {
           enable = true;
           closeAllFolders = true;

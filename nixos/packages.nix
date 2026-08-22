@@ -34,6 +34,7 @@
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
     upower.enable = true;
+    cloudflare-warp.enable = true;
   };
 
   systemd.services.lactd.enable = true;
@@ -220,7 +221,7 @@
     microfetch # I use nixos btw
     fastfetch
     nix-melt
-    nur.repos.zerozawa.mikusays
+    #nur.repos.zerozawa.mikusays
     xhost
     scrcpy
     opus-tools

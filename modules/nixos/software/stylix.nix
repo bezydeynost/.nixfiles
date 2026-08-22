@@ -11,11 +11,8 @@
     enable = true;
     enableReleaseChecks = false;
     autoEnable = true;
-
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     polarity = "dark";
-
     fonts = {
       sansSerif = {
         name = "Adwaita Sans";
