@@ -9,7 +9,6 @@
       vencord.enable = false;
       openASAR.enable = false;
     };
-    equibop.enable = true;
     config = {
       autoUpdate = true;
       plugins = {

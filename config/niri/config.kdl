@@ -1,8 +1,5 @@
-
      // === Startup ===
  spawn-at-startup        	        "noctalia"
- spawn-at-startup		        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
- spawn-at-startup		        "/usr/lib/xdg-desktop-portal-gnome"
  spawn-at-startup                       "wl-paste" "--type" "text" "--watch" "cliphist" "store"
  spawn-at-startup                       "wl-paste" "--type" "image" "--watch" "cliphist" "store"
  spawn-at-startup		        "flameshot"
@@ -24,7 +21,6 @@
      Mod+E		        	hotkey-overlay-title="File Manager: Dolphin" { spawn "dolphin"; }
      Mod+W		        	hotkey-overlay-title="File Manager: Yazi" { spawn "foot" "-e" "yazi"; }
      Mod+Shift+Home		        hotkey-overlay-title="Hide/Show Bar" { spawn-sh "noctalia msg bar-toggle"; }     
-     //Mod+Shift+Insert		        hotkey-overlay-title="LockScreen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }     
 
 
      // === Application Launchers ===
@@ -220,7 +216,7 @@
  	numlock
  }
  mouse {
- 	accel-speed -0.4
+ 	accel-speed -0.55
  	accel-profile "flat"
  }
  touchpad {
@@ -364,7 +360,6 @@
  }
 
  window-rule {
- 	match app-id="com.ayugram.desktop"
  	match app-id="org.telegram.desktop"
  	open-maximized true
  	open-on-workspace "chat"
@@ -443,29 +438,39 @@
 }
 
  // Blur Options //
-blur {
-        passes 2
-        offset 3.0
-        noise 0.03
-        saturation 1.0
- }
+ blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}
 
  window-rule {
         match app-id="^foot$"
-        match app-id="^Alacritty$"
         match app-id="^com.mitchellh.ghostty$"
         match app-id="^org.kde.dolphin$"
-        match app-id="^discord$"
+        opacity 0.92
         background-effect {
-             blur true
-             xray false
-     }
+                blur true
+                xray true
+        }     
+ }
+
+  window-rule {
+        match app-id="^discord$"
+        opacity 0.97
+        background-effect {
+                blur true
+                xray true
+        }     
  }
 
  layer-rule {
-        match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
-        background-effect {
-        xray false
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  opacity 0.9
+  background-effect {
+    xray false
+    blur true
   }
 }
 
@@ -515,3 +520,6 @@ blur {
          spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
      }
  }
+
+
+

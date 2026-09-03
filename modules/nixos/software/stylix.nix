@@ -11,7 +11,7 @@
     enable = true;
     enableReleaseChecks = false;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-savanna.yaml";
     polarity = "dark";
     fonts = {
       sansSerif = {

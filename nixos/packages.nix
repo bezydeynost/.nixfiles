@@ -37,8 +37,6 @@
     cloudflare-warp.enable = true;
   };
 
-  systemd.services.lactd.enable = true;
-
   programs = {
     nix-ld = {
       enable = true;
@@ -124,6 +122,7 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
     matugen
+    cataclysm-dda
     #flameshot
     bibata-cursors
     colloid-icon-theme
@@ -140,6 +139,7 @@
     localsend # Кидать файлы
     pear-desktop
     spotify
+    spotiflac
     #nicotine-plus # P2P music
     micro # Terminal text editor
     parabolic # Frontend yt-dlp
@@ -221,7 +221,7 @@
     microfetch # I use nixos btw
     fastfetch
     nix-melt
-    #nur.repos.zerozawa.mikusays
+    nur.repos.zerozawa.mikusays
     xhost
     scrcpy
     opus-tools

@@ -13,7 +13,7 @@
       upd = "sudo nix flake update --flake ${flakeDir}";
 
       # Garbage collector. Удалить все не используемые пакеты (например после обновы)
-      grb = "sudo nix-collect-garbage -d";
+      nixgrb = "sudo nix-collect-garbage -d";
 
       pkgs = "v ${flakeDir}/nixos/packages.nix";
       v = "nvim";

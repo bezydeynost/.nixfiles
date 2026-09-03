@@ -21,6 +21,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   systemd.packages = with pkgs; [lact];
+  systemd.services.lactd.enable = true;
   systemd.services.lact = {
     description = "LACT daemon";
     wantedBy = ["multi-user.target"];
